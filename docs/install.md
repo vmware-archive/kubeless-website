@@ -1,11 +1,11 @@
 ---
 layout: default
-permalink: /installation/
+permalink: /install/
 ---
 
 # Installation
 
-Download `kubeless` from the release page. Then launch the controller. It will ask you if you are OK to do it. It will create a _kubeless_ namespace and a _function_ ThirdPartyResource. You will see a _kubeless_ controller, and _kafka_, _zookeeper_ statefulset running.
+Download `kubeless` from the [release page](https://github.com/kubeless/kubeless/releases). Then launch the controller. It will ask you if you are OK to do it. It will create a _kubeless_ namespace and a _function_ ThirdPartyResource. You will see a _kubeless_ controller, and _kafka_, _zookeeper_ statefulset running.
 
 ```console
 $ kubeless install
