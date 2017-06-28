@@ -1,2 +1,5 @@
 items:
   "Introduction": "/"
+  "Installation": "/installation/"
+  "Build": "/build/"
+  "Examples": "/examples/"

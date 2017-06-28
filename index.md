@@ -22,42 +22,14 @@ Also check our [UI](https://github.com/kubeless/kubeless-ui) project
 
 ## Usage
 
-Download `kubeless` from the release page. Then launch the controller. It will ask you if you are OK to do it. It will create a _kubeless_ namespace and a _function_ ThirdPartyResource. You will see a _kubeless_ controller, and _kafka_, _zookeeper_ statefulset running.
-
-```console
-$ kubeless install
-We are going to install the controller in the kubeless namespace. Are you OK with this: [Y/n]
-
-$ kubectl get pods -n kubeless
-NAME                                   READY     STATUS    RESTARTS   AGE
-kafka-0                                1/1       Running   0          1m
-kubeless-controller-3331951411-d60km   1/1       Running   0          1m
-zoo-0                                  1/1       Running   0          1m
-
-$ kubectl get deployment -n kubeless
-NAME                  DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-kubeless-controller   1         1         1            1           1m
-
-$ kubectl get statefulset -n kubeless
-NAME      DESIRED   CURRENT   AGE
-kafka     1         1         1m
-zoo       1         1         1m
-
-$ kubectl get thirdpartyresource
-NAME             DESCRIPTION                                     VERSION(S)
-function.k8s.io   Kubeless: Serverless framework for Kubernetes   v1
-
-$ kubectl get functions
-```
-
-You are now ready to create functions. Then you can use the CLI to create a function. Functions have two possible types:
+You can use the CLI to create a function. Functions have two possible types:
 
 * http trigger (function will expose an HTTP endpoint)
 * pubsub trigger (function will consume event on a specific topic)
 
 ### HTTP function
 
-Here is a toy:
+Here is a toy function:
 
 ```python
 def foobar(context):
@@ -135,33 +107,4 @@ $ kubeless topic create <topic_name>
 $ kubeless topic delete <topic_name>
 $ kubeless topic ls
 ```
-
-## Examples
-
-See the [examples](./examples) directory for a list of various examples. Minio, SLACK, Twitter etc ...
-
-## Building
-
-### Building with go
-
-- you need go v1.7+
-- if your working copy is not in your `GOPATH`, you need to set it accordingly.
-- we provided Makefile.
-
-```
-$ make binary
-```
-
-You can build kubeless for multiple platforms with:
-
-```
-$ make binary-cross
-```
-
-### Download kubeless package
-
-```
-$ go get -u github.com/kubeless/kubeless
-```
-
 
