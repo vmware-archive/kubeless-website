@@ -1,1 +1,11 @@
-theme: jekyll-theme-cayman
+title: kubeless 
+project_name: kubeless
+description: >
+  A Kubernetes Native Serverless Framework. Kubeless supports both HTTP and event based triggers, has a serverless plugin, a graphical user interface and currently supports Python and Node.js runtimes.
+repository_url: https://github.com/kubeless/kubeless
+repository_shorthand: kubeless/kubeless
+
+author_name: The Kubeless Authors
+author_url: https://github.com/kubeless
+
+markdown: kramdown
