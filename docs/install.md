@@ -7,9 +7,18 @@ permalink: /install/
 
 Installing `kubeless` is a three step process:
 
-* Create a `kubeless` namespace: `kubectl create ns kubeless`
+* Create a `kubeless` namespace:
+
+```console
+kubectl create ns kubeless
+```
+
 * Download `kubeless from [release page](https://github.com/kubeless/kubeless/releases).
-* Create the `kubeless` manifests: `kubectl create -f $(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | jq -r ".assets[] | select(.name | test(\"yaml\")) | .browser_download_url")`
+* Create the `kubeless` manifests:
+
+```console
+kubectl create -f $(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | jq -r ".assets[] | select(.name | test(\"yaml\")) | .browser_download_url")
+```
 
 This last step will launch the controllern a deloyment and expose it via a service. It will also launch a Kafka and Zookeper development setup to handle the default messages. Finally, it will create a _function_ ThirdPartyResource.
 
