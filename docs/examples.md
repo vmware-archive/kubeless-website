@@ -53,7 +53,7 @@ $ curl --data '{"Another": "Echo"}' $(minikube service get-python --url) --heade
 {"Another": "Echo"}
 ```
 
-## EVent triggered functions
+## Event triggered functions
 
 Messages need to be JSON messages. A function can be as simple as:
 
