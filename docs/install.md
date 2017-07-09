@@ -3,6 +3,11 @@ layout: default
 permalink: /install/
 ---
 
+# Pre-requisites
+
+Kubeless runs on [Kubernetes](https://kubernetes.io), you need a working Kubernetes cluster to run kubeless.
+For testing you can use [minikube](https://github.com/kubernetes/minikube).
+
 # Installation
 
 Installing `kubeless` is a three step process:
