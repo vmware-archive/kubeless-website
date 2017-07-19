@@ -22,9 +22,3 @@ You can build kubeless for multiple platforms with:
 ```
 $ make binary-cross
 ```
-
-## Download kubeless package
-
-```
-$ go get -u github.com/kubeless/kubeless
-```

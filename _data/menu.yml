@@ -1,7 +1,7 @@
 items:
   "Home": "/"
-  "Build": "/build/"
   "Install": "/install/"
   "Examples": "/examples/"
+  "Build": "/build"
   "UI": "/ui/"
   "Serverless Plugin": "/serverless/"
