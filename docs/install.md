@@ -22,7 +22,7 @@ kubectl create ns kubeless
 * Create the `kubeless` manifests:
 
 ```console
-curl -sL https://github.com/kubeless/kubeless/releases/download/0.0.16/kubeless-0.0.16.yaml | kubectl create -f -
+curl -sL https://github.com/kubeless/kubeless/releases/download/0.0.18/kubeless-0.0.18.yaml | kubectl create -f -
 ```
 
 This last step will launch the controller, a deloyment and expose it via a service. It will also launch a Kafka and Zookeper development setup to handle the default messages. Finally, it will create a _function_ ThirdPartyResource.
