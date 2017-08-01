@@ -9,3 +9,6 @@ author_name: The Kubeless Authors
 author_url: https://github.com/kubeless
 
 markdown: kramdown
+
+gems:
+  - jekyll-seo-tag
