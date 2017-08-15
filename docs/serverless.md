@@ -22,15 +22,15 @@ npm install
 
 ## Usage
 
-Check the example. Notice that the provider is called `google`, this is not a mistake and is due to a [limitation](https://github.com/serverless/serverless/issues/3611) in the upstream serverless code that should be removed soon.
+Check the examples.
 
 ```
-cd examples
+cd examples/post-python
 cat serverless.yml
 service: hello
 
 provider:
-  name: google
+  name: kubeless
   runtime: python2.7
 
 plugins:
