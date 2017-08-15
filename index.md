@@ -35,7 +35,7 @@ The runtimes are pre-built docker images that wrap the functions in an HTTP serv
 
 ## Screencasts
 
-Demo of event based function triggers with Minio.
+Demo of event based function triggers with Minio. Click on the picture below to play the screencast.
 
 [![screencast](https://img.youtube.com/vi/AxZuQIJUX4s/0.jpg)](https://www.youtube.com/watch?v=AxZuQIJUX4s)
 
