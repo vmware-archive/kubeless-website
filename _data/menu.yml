@@ -5,3 +5,4 @@ items:
   "Build": "/build"
   "UI": "/ui/"
   "Serverless Plugin": "/serverless/"
+  "News:" "/news/"
