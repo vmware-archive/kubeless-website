@@ -10,7 +10,7 @@ Functions are deployed via the `kubeless` CLI. Functions have two possible types
 
 ## HTTP triggered functions
 
-Here is a toy function:
+Below is a toy function, save it in a file called `test.py`:
 
 ```python
 def foobar(request):
@@ -18,10 +18,10 @@ def foobar(request):
    return request.json
 ```
 
-You create it with:
+You deploy it with the following command:
 
 ```
-$ kubeless function deploy post-python --runtime python27 \
+$ kubeless function deploy post-python --runtime python2.7 \
                                       --handler test.foobar \
                                       --from-file test.py \
                                       --trigger-http
@@ -32,7 +32,7 @@ You will see the function custom resource created:
 ```console
 $ kubectl get functions
 NAME          KIND
-get-python    Function.v1.k8s.io
+post-python    Function.v1.k8s.io
 ```
 
 You can then call the function with:
@@ -49,7 +49,7 @@ Handling connection for 30000
 Or you can curl directly, for example (using minikube):
 
 ```
-$ curl --data '{"Another": "Echo"}' $(minikube service get-python --url) --header "Content-Type:application/json"
+$ curl --data '{"Another": "Echo"}' $(minikube service post-python --url) --header "Content-Type:application/json"
 {"Another": "Echo"}
 ```
 
@@ -66,7 +66,7 @@ def foobar(context):
 You create it the same way than an _HTTP_ function except that you specify a `--trigger-topic`.
 
 ```
-$ kubeless function deploy test --runtime python27 \
+$ kubeless function deploy test --runtime python2.7 \
                                 --handler test.foobar \
                                 --from-file test.py \
                                 --trigger-topic <topic_name>
