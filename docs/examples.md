@@ -46,10 +46,14 @@ Handling connection for 30000
 {"echo": "echo echo"}
 ```
 
-Or you can curl directly, for example (using minikube):
+Or you can curl directly, for example (using `kubectl proxy`):
 
 ```
-$ curl --data '{"Another": "Echo"}' $(minikube service post-python --url) --header "Content-Type:application/json"
+$ kubectl proxy
+Starting to serve on 127.0.0.1:8001
+```
+```
+$ curl --data '{"Another": "Echo"}' http://127.0.0.1:8001/api/v1/namespaces/default/services/post-python/proxy/ --header "Content-Type:application/json"
 {"Another": "Echo"}
 ```
 
