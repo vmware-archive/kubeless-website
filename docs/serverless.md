@@ -11,7 +11,7 @@ Kubeless has a [serverless](https://serverless.com/) plugin managed upstream at 
 
 ## Installation
 
-Install the serverless framework executing the command bellow:
+Install the serverless framework executing the command below:
 
 ```
 npm install serverless -g
