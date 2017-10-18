@@ -11,53 +11,55 @@ Kubeless has a [serverless](https://serverless.com/) plugin managed upstream at 
 
 ## Installation
 
-Install the serverless framework, clone the plugin repository and install it:
+Install the serverless framework executing the command bellow:
 
 ```
-npm install serverless -f
-git clone https://github.com/serverless/serverless-kubeless
-cd serverless-kubeless
-npm install
+npm install serverless -g
 ```
 
 ## Usage
 
-Check the examples.
+You can clone the repository and check the examples.
 
 ```
-cd examples/post-python
+git clone https://github.com/serverless/serverless-kubeless
+cd serverless-kubeless/examples/post-python
 cat serverless.yml
-service: hello
+service: echo
 
 provider:
   name: kubeless
   runtime: python2.7
 
 plugins:
-  - kubeless-serverless
+  - serverless-kubeless
 
 functions:
   hello:
     handler: handler.hello
 ```
 
-Set your Kubernetes endpoint via the `K8SAPISERVER` variable:
-
+First you need to download the dependencies:
 ```
-export K8SAPISERVER=https://192.168.99.100:8443
+npm install
 ```
 
-Deploy the function with:
+Then deploy the function with:
 
 ```
 serverless deploy
 Serverless: Packaging service...
 Serverless: Deploying function: hello...
+Serverless: Function hello successfully deployed
 ```
 
-Remove the function with:
+Now you will be able to call the function:
 
 ```
-serverless remove
+serverless invoke -f echo -l --data '{"hello": "world"}'
+Serverless: Calling function: echo...
+--------------------------------------------------------------------
+{ hello: 'world' }
 ```
 
+For more details visit the [GitHub repository](https://github.com/serverless/serverless-kubeless).
