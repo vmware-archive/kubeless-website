@@ -1,0 +1,11 @@
+!!!
+%html
+  / Head information
+  = partial 'layouts/partials/head'
+
+  / Main content
+  %body
+    = partial 'layouts/partials/header'
+    %main
+      .container
+        = yield

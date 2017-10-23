@@ -1,0 +1,10 @@
+%h1 Example
+%p
+  This is a project example for middleman. The following data is read from the
+  %code /data
+  folder. Also, this file is written in HAML format.
+%ul
+  - data.projects.each do |project|
+    %li
+      %a{href: project['url'], target: '_blank', rel: 'noopener'}
+        = project['name']

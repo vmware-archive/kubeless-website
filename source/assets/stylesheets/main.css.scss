@@ -1,0 +1,9 @@
+// First, import all the custom variables
+@import 'vars/all';
+// Then, import the components
+@import 'components/all';
+
+// Resets and general stuff
+body {
+  background-color: $background;
+}
