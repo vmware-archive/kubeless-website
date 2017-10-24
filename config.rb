@@ -12,3 +12,11 @@ set :haml, { format: :html5 }
 
 # Remove .html in the URL
 activate :directory_indexes
+
+# Configure build environment
+configure :build do
+  # If you set the MIDDLEMAN_HTTP_PREFIX environment variable on build,
+  # all the assets will include this prefix in the URL. This is very useful
+  # to deploy the site to GitHub Pages.
+  set :http_prefix, ENV['MIDDLEMAN_HTTP_PREFIX'] if ENV['MIDDLEMAN_HTTP_PREFIX'].present?
+end

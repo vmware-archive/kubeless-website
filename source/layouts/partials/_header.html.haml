@@ -3,10 +3,8 @@
     .row.collapse-on-phone.collapse-on-phone-landscape
       .col-4
         .Header__Logo
-          %img{src: '/assets/images/bitnami.png'}
+          = image_tag 'bitnami.png'
       .col-8
         %nav.text-r.padding-t-normal
-          %a.margin-h-big{href: '/'}
-            Home
-          %a.margin-h-big{href: '/about'}
-            About
+          = link_to 'Home', '/', class: 'margin-h-big'
+          = link_to 'About', '/about', class: 'margin-h-big'
