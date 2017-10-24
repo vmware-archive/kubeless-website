@@ -1,10 +1,11 @@
-.container
-  %header.Header.padding-v-bigger
+%header.Header.padding-v-big
+  .container
     .row.collapse-on-phone.collapse-on-phone-landscape
       .col-4
-        Bitnami Middleman Boilerplate
+        .Header__Logo
+          %img{src: '/assets/images/bitnami.png'}
       .col-8
-        %nav.text-r.padding-t-small
+        %nav.text-r.padding-t-normal
           %a.margin-h-big{href: '/'}
             Home
           %a.margin-h-big{href: '/about'}

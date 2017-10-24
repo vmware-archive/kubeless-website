@@ -1,0 +1,23 @@
+sudo: required
+language: ruby
+env:
+  - DOCKER_COMPOSE_VERSION=1.16.1
+services:
+  - docker
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+jobs:
+  include:
+    - stage: build
+      script: docker-compose --rm middleman bundle exec middleman build
+
+deploy:
+  - provider: pages
+    local_dir: ./build/
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN

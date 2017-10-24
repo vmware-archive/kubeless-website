@@ -1,7 +1,4 @@
-# include MD5 gem, should be part of standard ruby install
-require 'digest/md5'
-
-# Configuration
+# Configure the assets folders
 set :build_dir, 'build'
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
