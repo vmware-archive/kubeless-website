@@ -1,9 +1,9 @@
 sudo: required
 language: ruby
 install: true
+script: true
 env:
   - DOCKER_COMPOSE_VERSION=1.16.1
-  - MIDDLEMAN_HTTP_PREFIX="/middleman-boilerplate"
 services:
   - docker
 
@@ -16,6 +16,8 @@ before_install:
 jobs:
   include:
     - stage: build
+      env:
+        - MIDDLEMAN_HTTP_PREFIX="/middleman-boilerplate"
       script:  docker-compose run --rm -e MIDDLEMAN_HTTP_PREFIX=$MIDDLEMAN_HTTP_PREFIX middleman bundle exec middleman build
 
 deploy:
