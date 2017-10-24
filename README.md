@@ -61,7 +61,7 @@ The deployment will depend on how you want to serve your static files. There are
 * [GitHub pages](https://pages.github.com/)
 * ...
 
-This project is served using GitHub Pages. However, some of our static sites are provided using [Kubernets](https://kubernetes.io/). As you can see, the options are unlimited.
+This project is served using GitHub Pages. However, some of our static sites are provided using [Kubernetes](https://kubernetes.io/). As you can see, the options are unlimited.
 
 ## Contributing
 

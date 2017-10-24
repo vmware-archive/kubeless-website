@@ -14,10 +14,12 @@ before_install:
 jobs:
   include:
     - stage: build
-      script: docker-compose --rm middleman bundle exec middleman build
+      script: docker-compose run --rm middleman bundle exec middleman build
 
 deploy:
   - provider: pages
     local_dir: ./build/
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
+    on:
+      branch: master
