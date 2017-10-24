@@ -2,6 +2,8 @@
   <img width="350" src="https://user-images.githubusercontent.com/4056725/31936391-c0e464b6-b8b1-11e7-845b-330bf28b6376.png" />
 </p>
 
+[![Build Status](https://travis-ci.org/bitnami/middleman-boilerplate.svg?branch=master)](https://travis-ci.org/bitnami/middleman-boilerplate)
+
 At [Bitnami](https://bitnami.com) we use [middleman](https://middlemanapp.com) to create static sites for our products. From simple sites to complex static applications, `middleman` fits all our requirements.
 
 For this reason, we've created this boilerplate with the basic configuration of our static site projects. This boilerplate includes:

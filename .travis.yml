@@ -1,5 +1,6 @@
 sudo: required
 language: ruby
+install: true
 env:
   - DOCKER_COMPOSE_VERSION=1.16.1
   - MIDDLEMAN_HTTP_PREFIX="/middleman-boilerplate"
