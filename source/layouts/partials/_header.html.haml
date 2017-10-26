@@ -3,7 +3,8 @@
     .row.collapse-on-phone.collapse-on-phone-landscape
       .col-4
         .Header__Logo
-          = image_tag 'bitnami.png'
+          = link_to '/index.html' do
+            = image_tag 'bitnami.png'
       .col-8
         %nav.text-r.padding-t-normal
           = link_to 'Home', '/index.html', class: 'margin-h-big'
