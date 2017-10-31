@@ -1,11 +1,12 @@
 .Header {
-  // Header CSS code
-  background-color: $header-background;
-  border-bottom: 1px solid darken($header-background, 5%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   &__Logo {
     img {
-      width: 120px;
+      height: 40px;
     }
   }
 }

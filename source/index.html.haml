@@ -1,11 +1,27 @@
-%h1 Example
-%p
-  This is a project example for middleman. The following example data is read from the
-  %code /data
-  folder. Also, this file is written in HAML format. You can find it
-  %code source/index.html.haml
-%ul
-  - data.projects.each do |project|
-    %li
-      %a{href: project['url'], target: '_blank', rel: 'noopener'}
-        = project['name']
+.Index
+  .banner.bg-brand.padding-huge.text-c.margin-b-reset
+    = image_tag 'kubeless-dark-text.png', { :class => 'logo margin-t-bigger' }
+    %h2.inverse.margin-v-small
+      Discover & launch great Kubernetes-ready apps
+
+  .bg-base
+    .container.container-small.padding-v-big
+      %h1.text-c
+        The best of both worlds
+      %h5.text-c.subtitle
+        The ease of Bitnami backed by the compute power of Centurylink
+      .row.collapse-2-on-tablet
+        .col-6
+          %h3 Huge selection
+          %p
+            Bitnami packages the most popular open source apps and development environments — 150+ and growing.
+        .col-6
+          %h3 Up to date
+          %p
+            Bitnami monitors all of the apps and components it packages and releases updates once they become available.
+      %p.text-c
+        For more information on how Bitnami works, please visit the
+        %a About Bitnami
+        page.
+
+  = partial 'layouts/partials/footer'
