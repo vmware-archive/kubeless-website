@@ -7,6 +7,5 @@
             = image_tag 'kubeless-text.png'
       .col-8
         %nav.text-r.padding-t-normal
-          = link_to 'Home', '/index.html', class: 'margin-h-big'
-          = link_to 'About', '/about.html', class: 'margin-h-big'
-          = link_to 'GitHub', 'https://github.com/kubeapps/', class: 'margin-h-big', rel: 'noopener', target: '_blank'
+          - data.links.each do |link|
+            = link_to link['label'], link['url'], class: 'margin-h-big'
