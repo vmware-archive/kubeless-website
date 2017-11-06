@@ -1,6 +1,7 @@
 ---
-layout: default
-permalink: /ui/
+title: Kubeless UI
+description: Graphical User Interface for kubeless
+layout: page
 ---
 
 # Graphical User Interface
@@ -13,8 +14,7 @@ Kubeless as a Web based UI available at [https://github.com/kubeless/kubeless-ui
 If you want to run the UI locally, check the [README](https://github.com/kubeless/kubeless-ui/blob/master/README.md), otherwise you can launch the UI directly within your Kubernetes cluster using a manifest like so:
 
 ```
-kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless/master/manifests/ui/ui-deployment.yaml
-kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless/master/manifests/ui/ui-svc.yaml
+kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless-ui/master/k8s.yaml
 ```
 
 The service is a NodePort for straightforward testing on minikube.
@@ -29,4 +29,4 @@ minikube service ui -n kubeless
 
 And you will then access the UI below:
 
-<img src="/images/kubeless-ui.png">
+<img src="assets/images/kubeless-ui.png">

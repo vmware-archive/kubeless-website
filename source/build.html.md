@@ -1,6 +1,7 @@
 ---
-layout: default
-permalink: /build/
+title: Kubeless build
+description: Kubeless building process
+layout: page
 ---
 
 # Building

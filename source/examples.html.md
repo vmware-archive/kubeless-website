@@ -1,7 +1,10 @@
 ---
-layout: default
-permalink: /examples/
+title: Kubeless Examples
+description: Some examples of usage for kubeless
+layout: page
 ---
+
+# Examples
 
 Functions are deployed via the `kubeless` CLI. Functions have two possible types:
 
@@ -96,4 +99,3 @@ $ kubeless topic ls
 ## More Examples
 
 More advanced [examples](https://github.com/kubeless/kubeless/tree/master/examples) are available in the GitHub repository (e.g Minio thumbnail creator, SLACK notifications, Twitter etc).
-

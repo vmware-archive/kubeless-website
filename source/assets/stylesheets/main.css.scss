@@ -5,5 +5,12 @@
 
 // Resets and general stuff
 body {
-  background-color: $background;
+  background-color: $kubeless-base;
+}
+
+.page-layout {
+  img {
+    max-width: 100%;
+    border: 1px solid $kubeless-light;
+  }
 }

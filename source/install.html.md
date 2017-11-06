@@ -1,6 +1,7 @@
 ---
-layout: default
-permalink: /install/
+title: Kubeless Install
+description: Installation steps for Kubeless
+layout: page
 ---
 
 # Pre-requisites
@@ -22,7 +23,7 @@ kubectl create ns kubeless
 * Create the `kubeless` manifests:
 
 ```console
-curl -sL https://github.com/kubeless/kubeless/releases/download/v0.1.0/kubeless-v0.1.0.yaml | kubectl create -f -
+curl -sL https://github.com/kubeless/kubeless/releases/download/v0.2.3/kubeless-v0.2.3.yaml | kubectl create -f -
 ```
 
 This last step will launch the controller, a deloyment and expose it via a service. It will also launch a Kafka and Zookeper development setup to handle the default messages. Finally, it will create a _function_ ThirdPartyResource.
@@ -43,9 +44,9 @@ NAME      DESIRED   CURRENT   AGE
 kafka     1         1         1m
 zoo       1         1         1m
 
-$ kubectl get thirdpartyresource
-NAME             DESCRIPTION                                     VERSION(S)
-function.k8s.io   Kubeless: Serverless framework for Kubernetes   v1
+$ kubectl get customresourcedefinition
+NAME               KIND
+functions.k8s.io   CustomResourceDefinition.v1beta1.apiextensions.k8s.io
 
 $ kubectl get functions
 ```
