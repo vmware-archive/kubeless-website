@@ -24,5 +24,5 @@ The website is running on [http://localhost:4567](http://localhost:4567)
 ## Publish to Github Pages
 
 ```
-bundle exec mgd --branch master
+./scripts/publish.sh
 ```
