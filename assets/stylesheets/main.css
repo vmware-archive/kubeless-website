@@ -1,0 +1,23 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #e6e7e8; }
+  .Header__Logo img {
+    height: 40px; }
+
+.Footer .logo {
+  height: 30px; }
+.Footer .underline {
+  text-decoration: underline; }
+
+.Banner .logo {
+  height: 100px; }
+
+body {
+  background-color: #fff; }
+
+.page-layout img {
+  max-width: 100%;
+  border: 1px solid #e6e7e8; }

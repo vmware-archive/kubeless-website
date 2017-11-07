@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless Examples
+</title>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans|Roboto' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/0.4.0/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/0.4.0/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<header class='Header padding-v-big bg-base'>
+<div class='container'>
+<div class='row collapse-on-phone collapse-on-phone-landscape'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/kubeless-text.png" alt="Kubeless text" />
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r padding-t-normal'>
+<a href="/" class="margin-h-big">Home</a>
+<a href="/install" class="margin-h-big">Install</a>
+<a href="/examples" class="margin-h-big">Examples</a>
+<a href="/build" class="margin-h-big">Build</a>
+<a href="/ui" class="margin-h-big">UI</a>
+<a href="/serverless" class="margin-h-big">Serverless Plugin</a>
+<a href="/news" class="margin-h-big">News</a>
+</nav>
+</div>
+</div>
+</div>
+</header>
+
+<main class='page-layout bg-base'>
+<div class='container container-small padding-v-big margin-t-giant'>
+<h1 id="examples">Examples</h1>
+
+<p>Functions are deployed via the <code>kubeless</code> CLI. Functions have two possible types:</p>
+
+<ul>
+  <li>http trigger (functions will expose an HTTP endpoint)</li>
+  <li>event trigger (functions will consume events on a specific broker topic)</li>
+</ul>
+
+<h2 id="http-triggered-functions">HTTP triggered functions</h2>
+
+<p>Below is a toy function, save it in a file called <code>test.py</code>:</p>
+
+<p><code>python
+def foobar(request):
+   print request.json
+   return request.json
+</code></p>
+
+<p>You deploy it with the following command:</p>
+
+<p><code>
+$ kubeless function deploy post-python --runtime python2.7 \
+                                      --handler test.foobar \
+                                      --from-file test.py \
+                                      --trigger-http
+</code></p>
+
+<p>You will see the function custom resource created:</p>
+
+<p><code>console
+$ kubectl get functions
+NAME          KIND
+post-python    Function.v1.k8s.io
+</code></p>
+
+<p>You can then call the function with:</p>
+
+<p><code>
+$ kubeless function call post-python --data '{"echo": "echo echo"}'
+Connecting to function...
+Forwarding from 127.0.0.1:30000 -&gt; 8080
+Forwarding from [::1]:30000 -&gt; 8080
+Handling connection for 30000
+{"echo": "echo echo"}
+</code></p>
+
+<p>Or you can curl directly, for example (using <code>kubectl proxy</code>):</p>
+
+<p><code>
+$ kubectl proxy
+Starting to serve on 127.0.0.1:8001
+</code>
+<code>
+$ curl --data '{"Another": "Echo"}' http://127.0.0.1:8001/api/v1/namespaces/default/services/post-python/proxy/ --header "Content-Type:application/json"
+{"Another": "Echo"}
+</code></p>
+
+<h2 id="event-triggered-functions">Event triggered functions</h2>
+
+<p>Messages need to be JSON messages. A function can be as simple as:</p>
+
+<p><code>python
+def foobar(context):
+    print context.json
+    return context.json
+</code></p>
+
+<p>You create it the same way than an <em>HTTP</em> function except that you specify a <code>--trigger-topic</code>.</p>
+
+<p><code>
+$ kubeless function deploy test --runtime python2.7 \
+                                --handler test.foobar \
+                                --from-file test.py \
+                                --trigger-topic &lt;topic_name&gt;
+</code></p>
+
+<h2 id="other-commands">Other commands</h2>
+
+<p>You can delete and list functions:</p>
+
+<p><code>
+$ kubeless function delete &lt;function_name&gt;
+$ kubeless function ls
+</code></p>
+
+<p>You can create, list and delete topics available in the message broker:</p>
+
+<p><code>
+$ kubeless topic create &lt;topic_name&gt;
+$ kubeless topic delete &lt;topic_name&gt;
+$ kubeless topic ls
+</code></p>
+
+<h2 id="more-examples">More Examples</h2>
+
+<p>More advanced <a href="https://github.com/kubeless/kubeless/tree/master/examples">examples</a> are available in the GitHub repository (e.g Minio thumbnail creator, SLACK notifications, Twitter etc).</p>
+
+</div>
+</main>
+<div class='Footer bg-dark'>
+<div class='container container-small inverse padding-b-big'>
+<div class='row collapse-on-phone'>
+<div class='col-6'>
+<div class='padding-big'>
+<img src="/assets/images/kubeless-dark-text.png" class="logo" alt="Kubeless dark text" />
+<p class='type-small'>
+A Kubernetes Native Serverless Framework.<br/>
+Kubeless supports both HTTP and event based triggers, has a serverless plugin, a graphical user interface and multiple runtimes, including Python and Node.js.
+</p>
+<p>
+This project is maintained by
+<a class='inverse underline' href='https://github.com/kubeless'>
+The Kubeless Authors
+</a>
+</p>
+</div>
+</div>
+<div class='col-6'>
+<div class='padding-big'>
+<p>
+<a class='inverse' href='https://github.com/kubeless/kubeless'>
+View the project on Github <br/>
+<small>github.com/kubeless/kubeless</small>
+</a>
+</p>
+<div>
+<a class='twitter-follow-button' data-show-count='false' href='https://twitter.com/kubeless_sh'>Follow @kubeless_sh</a>
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<a href='http://slack.oss.bitnami.com'>
+<img src='https://img.shields.io/badge/slack-join%20chat%20%E2%86%92-e01563.svg'>
+</a>
+</div>
+<div>
+<iframe allowtransparency='true' frameborder='0' height='20' scrolling='0' src='http://ghbtns.com/github-btn.html?user=kubeless&amp;repo=kubeless&amp;type=star&amp;count=true&amp;v=2' width='95'></iframe>
+<iframe allowtransparency='true' frameborder='0' height='20' scrolling='0' src='http://ghbtns.com/github-btn.html?user=kubeless&amp;repo=kubeless&amp;type=fork&amp;count=true&amp;v=2' width='88'></iframe>
+<iframe frameborder='0' height='20px' scrolling='0' src='https://ghbtns.com/github-btn.html?user=kubeless&amp;repo=kubeless&amp;type=watch&amp;count=true&amp;v=2' width='95'></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
