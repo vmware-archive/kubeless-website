@@ -31,11 +31,14 @@ GEM
     hashie (3.5.6)
     i18n (0.7.0)
     kramdown (1.15.0)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8 (3.16.14.19)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
     memoist (0.16.0)
+    mgd (0.2.0)
+      middleman (>= 3.0.0)
+      trollop (= 2.1.2)
     middleman (4.2.1)
       coffee-script (~> 2.2)
       compass-import-once (= 1.0.5)
@@ -92,6 +95,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    trollop (2.1.2)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -101,8 +105,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mgd
   middleman (~> 4.2.1)
   therubyracer
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
