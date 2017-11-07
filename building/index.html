@@ -13,7 +13,7 @@
 <link href='/assets/images/favicon/favicon.ico' rel='icon'>
 <!-- Use title if it's in the page YAML frontmatter -->
 <title>
-Kubeless UI
+Kubeless build
 </title>
 <!-- Bitnami Design System -->
 <link href='https://fonts.googleapis.com/css?family=PT+Sans|Roboto' media='screen' rel='stylesheet'>
@@ -51,31 +51,27 @@ Kubeless UI
 
 <main class='page-layout bg-base'>
 <div class='container container-small padding-v-big margin-t-giant'>
-<h1 id="graphical-user-interface">Graphical User Interface</h1>
+<h1 id="building">Building</h1>
 
-<p>Kubeless as a Web based UI available at <a href="https://github.com/kubeless/kubeless-ui">https://github.com/kubeless/kubeless-ui</a>. It is a react-redux application that lets you edit and create function, check the logs and send small payload for testing.</p>
+<h2 id="building-with-golang">Building with Golang</h2>
 
-<h2 id="launch-the-ui">Launch the UI</h2>
-
-<p>If you want to run the UI locally, check the <a href="https://github.com/kubeless/kubeless-ui/blob/master/README.md">README</a>, otherwise you can launch the UI directly within your Kubernetes cluster using a manifest like so:</p>
-
-<p><code>
-kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless-ui/master/k8s.yaml
-</code></p>
-
-<p>The service is a NodePort for straightforward testing on minikube.</p>
-
-<h2 id="access-the-ui">Access the UI</h2>
-
-<p>On minikube this will be:</p>
+<ul>
+  <li>you need go v1.7+</li>
+  <li>if your working copy is not in your <code>GOPATH</code>, you need to set it accordingly.</li>
+  <li>use the provided a Makefile.</li>
+</ul>
 
 <p><code>
-minikube service ui -n kubeless
+$ git clone https://github.com/kubeless/kubeless.git
+$ cd kubeless
+$ make binary
 </code></p>
 
-<p>And you will then access the UI below:</p>
+<p>You can build kubeless for multiple platforms with:</p>
 
-<p><img src="assets/images/kubeless-ui.png" /></p>
+<p><code>
+$ make binary-cross
+</code></p>
 
 </div>
 </main>
