@@ -29,4 +29,4 @@ minikube service ui -n kubeless
 
 And you will then access the UI below:
 
-<img src="/assets/images/kubeless-ui.png">
+![A screenshot for the Kubeless UI](/assets/images/kubeless-ui.png)

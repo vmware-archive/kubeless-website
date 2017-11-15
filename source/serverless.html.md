@@ -4,7 +4,7 @@ description: Kubeless Serverless plugin
 layout: page
 ---
 
-<img src="/assets/images/serverless-logo.png">
+![The serverless framework logo](/assets/images/serverless-logo.png)
 
 # Kubeless Serverless Plugin
 
