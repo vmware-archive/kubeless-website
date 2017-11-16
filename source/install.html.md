@@ -15,20 +15,20 @@ Installing `kubeless` is a three step process:
 
 * Create a `kubeless` namespace:
 
-```console
+~~~console
 kubectl create ns kubeless
-```
+~~~
 
 * Download `kubeless` from [release page](https://github.com/kubeless/kubeless/releases).
 * Create the `kubeless` manifests:
 
-```console
+~~~console
 curl -sL https://github.com/kubeless/kubeless/releases/download/v0.2.3/kubeless-v0.2.3.yaml | kubectl create -f -
-```
+~~~
 
 This last step will launch the controller, a deloyment and expose it via a service. It will also launch a Kafka and Zookeper development setup to handle the default messages. Finally, it will create a _function_ ThirdPartyResource.
 
-```console
+~~~
 $ kubectl get pods -n kubeless
 NAME                                   READY     STATUS    RESTARTS   AGE
 kafka-0                                1/1       Running   0          1m
@@ -49,13 +49,13 @@ NAME               KIND
 functions.k8s.io   CustomResourceDefinition.v1beta1.apiextensions.k8s.io
 
 $ kubectl get functions
-```
+~~~
 
 # Uninstall
 
 You can uninstall all `kubeless` components by removing all existing functions first (this will insure that all configmaps, deployments and services corresponding to the functions are removed) and then removing the `kubeless` namespace directly:
 
-```
+~~~console
 kubeless function delete <function_name>
 kubectl delete ns kubeless
-```
+~~~
