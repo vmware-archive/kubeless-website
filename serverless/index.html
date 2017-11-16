@@ -51,7 +51,7 @@ Kubeless Serverless plugin
 
 <main class='page-layout bg-base'>
 <div class='container container-small padding-v-big margin-t-giant'>
-<p><img src="assets/images/serverless-logo.png" /></p>
+<p><img src="/assets/images/serverless-logo.png" alt="The serverless framework logo" /></p>
 
 <h1 id="kubeless-serverless-plugin">Kubeless Serverless Plugin</h1>
 
@@ -61,54 +61,50 @@ Kubeless Serverless plugin
 
 <p>Install the serverless framework executing the command below:</p>
 
-<p><code>
-npm install serverless -g
-</code></p>
+<pre><code>npm install serverless -g
+</code></pre>
 
 <h2 id="usage">Usage</h2>
 
 <p>You can clone the repository and check the examples.</p>
 
-<p>```
-git clone https://github.com/serverless/serverless-kubeless
+<pre><code>git clone https://github.com/serverless/serverless-kubeless
 cd serverless-kubeless/examples/post-python
 cat serverless.yml
-service: echo</p>
+service: echo
 
-<p>provider:
+provider:
   name: kubeless
-  runtime: python2.7</p>
+  runtime: python2.7
 
-<p>plugins:
-  - serverless-kubeless</p>
+plugins:
+  - serverless-kubeless
 
-<p>functions:
+functions:
   hello:
     handler: handler.hello
-```</p>
+</code></pre>
 
 <p>First you need to download the dependencies:
-<code>
+~~~
 npm install
-</code></p>
+~~~</p>
 
 <p>Then deploy the function with:</p>
 
-<p><code>
-serverless deploy
+<pre><code>serverless deploy
 Serverless: Packaging service...
 Serverless: Deploying function: hello...
 Serverless: Function hello successfully deployed
-</code></p>
+</code></pre>
 
 <p>Now you will be able to call the function:</p>
 
-<p><code>
-serverless invoke -f echo -l --data '{"hello": "world"}'
+<pre><code>serverless invoke -f echo -l --data '{"hello": "world"}'
 Serverless: Calling function: echo...
 --------------------------------------------------------------------
 { hello: 'world' }
-</code></p>
+</code></pre>
 
 <p>For more details visit the <a href="https://github.com/serverless/serverless-kubeless">GitHub repository</a>.</p>
 

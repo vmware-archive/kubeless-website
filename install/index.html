@@ -64,52 +64,48 @@ For testing you can use <a href="https://github.com/kubernetes/minikube">minikub
   <li>Create a <code>kubeless</code> namespace:</li>
 </ul>
 
-<p><code>console
-kubectl create ns kubeless
-</code></p>
+<pre><code class="language-console">kubectl create ns kubeless
+</code></pre>
 
 <ul>
   <li>Download <code>kubeless</code> from <a href="https://github.com/kubeless/kubeless/releases">release page</a>.</li>
   <li>Create the <code>kubeless</code> manifests:</li>
 </ul>
 
-<p><code>console
-curl -sL https://github.com/kubeless/kubeless/releases/download/v0.2.3/kubeless-v0.2.3.yaml | kubectl create -f -
-</code></p>
+<pre><code class="language-console">curl -sL https://github.com/kubeless/kubeless/releases/download/v0.2.3/kubeless-v0.2.3.yaml | kubectl create -f -
+</code></pre>
 
 <p>This last step will launch the controller, a deloyment and expose it via a service. It will also launch a Kafka and Zookeper development setup to handle the default messages. Finally, it will create a <em>function</em> ThirdPartyResource.</p>
 
-<p>```console
-$ kubectl get pods -n kubeless
+<pre><code>$ kubectl get pods -n kubeless
 NAME                                   READY     STATUS    RESTARTS   AGE
 kafka-0                                1/1       Running   0          1m
 kubeless-controller-3331951411-d60km   1/1       Running   0          1m
-zoo-0                                  1/1       Running   0          1m</p>
+zoo-0                                  1/1       Running   0          1m
 
-<p>$ kubectl get deployment -n kubeless
+$ kubectl get deployment -n kubeless
 NAME                  DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-kubeless-controller   1         1         1            1           1m</p>
+kubeless-controller   1         1         1            1           1m
 
-<p>$ kubectl get statefulset -n kubeless
+$ kubectl get statefulset -n kubeless
 NAME      DESIRED   CURRENT   AGE
 kafka     1         1         1m
-zoo       1         1         1m</p>
+zoo       1         1         1m
 
-<p>$ kubectl get customresourcedefinition
+$ kubectl get customresourcedefinition
 NAME               KIND
-functions.k8s.io   CustomResourceDefinition.v1beta1.apiextensions.k8s.io</p>
+functions.k8s.io   CustomResourceDefinition.v1beta1.apiextensions.k8s.io
 
-<p>$ kubectl get functions
-```</p>
+$ kubectl get functions
+</code></pre>
 
 <h1 id="uninstall">Uninstall</h1>
 
 <p>You can uninstall all <code>kubeless</code> components by removing all existing functions first (this will insure that all configmaps, deployments and services corresponding to the functions are removed) and then removing the <code>kubeless</code> namespace directly:</p>
 
-<p><code>
-kubeless function delete &lt;function_name&gt;
+<pre><code class="language-console">kubeless function delete &lt;function_name&gt;
 kubectl delete ns kubeless
-</code></p>
+</code></pre>
 
 </div>
 </main>

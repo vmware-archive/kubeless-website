@@ -59,9 +59,8 @@ Kubeless UI
 
 <p>If you want to run the UI locally, check the <a href="https://github.com/kubeless/kubeless-ui/blob/master/README.md">README</a>, otherwise you can launch the UI directly within your Kubernetes cluster using a manifest like so:</p>
 
-<p><code>
-kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless-ui/master/k8s.yaml
-</code></p>
+<pre><code>kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless-ui/master/k8s.yaml
+</code></pre>
 
 <p>The service is a NodePort for straightforward testing on minikube.</p>
 
@@ -69,13 +68,12 @@ kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless-ui/master/
 
 <p>On minikube this will be:</p>
 
-<p><code>
-minikube service ui -n kubeless
-</code></p>
+<pre><code>minikube service ui -n kubeless
+</code></pre>
 
 <p>And you will then access the UI below:</p>
 
-<p><img src="assets/images/kubeless-ui.png" /></p>
+<p><img src="/assets/images/kubeless-ui.png" alt="A screenshot for the Kubeless UI" /></p>
 
 </div>
 </main>

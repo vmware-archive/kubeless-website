@@ -64,86 +64,76 @@ Kubeless Examples
 
 <p>Below is a toy function, save it in a file called <code>test.py</code>:</p>
 
-<p><code>python
-def foobar(request):
+<pre><code class="language-python">def foobar(request):
    print request.json
    return request.json
-</code></p>
+</code></pre>
 
 <p>You deploy it with the following command:</p>
 
-<p><code>
-$ kubeless function deploy post-python --runtime python2.7 \
+<pre><code>$ kubeless function deploy post-python --runtime python2.7 \
                                       --handler test.foobar \
                                       --from-file test.py \
                                       --trigger-http
-</code></p>
+</code></pre>
 
 <p>You will see the function custom resource created:</p>
 
-<p><code>console
-$ kubectl get functions
+<pre><code class="language-console">$ kubectl get functions
 NAME          KIND
 post-python    Function.v1.k8s.io
-</code></p>
+</code></pre>
 
 <p>You can then call the function with:</p>
 
-<p><code>
-$ kubeless function call post-python --data '{"echo": "echo echo"}'
+<pre><code>$ kubeless function call post-python --data '{"echo": "echo echo"}'
 Connecting to function...
 Forwarding from 127.0.0.1:30000 -&gt; 8080
 Forwarding from [::1]:30000 -&gt; 8080
 Handling connection for 30000
 {"echo": "echo echo"}
-</code></p>
+</code></pre>
 
 <p>Or you can curl directly, for example (using <code>kubectl proxy</code>):</p>
 
-<p><code>
-$ kubectl proxy
+<pre><code>$ kubectl proxy
 Starting to serve on 127.0.0.1:8001
-</code>
-<code>
-$ curl --data '{"Another": "Echo"}' http://127.0.0.1:8001/api/v1/namespaces/default/services/post-python/proxy/ --header "Content-Type:application/json"
+</code></pre>
+<pre><code>$ curl --data '{"Another": "Echo"}' http://127.0.0.1:8001/api/v1/namespaces/default/services/post-python/proxy/ --header "Content-Type:application/json"
 {"Another": "Echo"}
-</code></p>
+</code></pre>
 
 <h2 id="event-triggered-functions">Event triggered functions</h2>
 
 <p>Messages need to be JSON messages. A function can be as simple as:</p>
 
-<p><code>python
-def foobar(context):
+<pre><code class="language-python">def foobar(context):
     print context.json
     return context.json
-</code></p>
+</code></pre>
 
 <p>You create it the same way than an <em>HTTP</em> function except that you specify a <code>--trigger-topic</code>.</p>
 
-<p><code>
-$ kubeless function deploy test --runtime python2.7 \
+<pre><code>$ kubeless function deploy test --runtime python2.7 \
                                 --handler test.foobar \
                                 --from-file test.py \
                                 --trigger-topic &lt;topic_name&gt;
-</code></p>
+</code></pre>
 
 <h2 id="other-commands">Other commands</h2>
 
 <p>You can delete and list functions:</p>
 
-<p><code>
-$ kubeless function delete &lt;function_name&gt;
+<pre><code>$ kubeless function delete &lt;function_name&gt;
 $ kubeless function ls
-</code></p>
+</code></pre>
 
 <p>You can create, list and delete topics available in the message broker:</p>
 
-<p><code>
-$ kubeless topic create &lt;topic_name&gt;
+<pre><code>$ kubeless topic create &lt;topic_name&gt;
 $ kubeless topic delete &lt;topic_name&gt;
 $ kubeless topic ls
-</code></p>
+</code></pre>
 
 <h2 id="more-examples">More Examples</h2>
 
