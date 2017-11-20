@@ -1,3 +1,9 @@
+---
+title: Kubeless
+description: Kubeless is a Kubernetes-native serverless framework
+layout: index
+---
+
 `kubeless` is a Kubernetes-native serverless framework. It runs on top of your Kubernetes cluster and allows you to deploy small unit of code without having to build container images. With kubeless you can build advanced applications that tie together services using functions.
 
 We believe that Kubeless is the most Kubernetes native serverless implementation available. Kubeless is built on top of Kubernetes from scratch and is making use of core Kubernetes primitives (e.g deployments, services, configmaps, ingress), this allows us to benefit directly from the Kubernetes core and to not re-invent the wheel. In addition, Kubeless makes use of Prometheus for monitoring functions calls. This is built directly in the runtimes.
