@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kubeless/kubeless.github.io.svg?branch=master)](https://travis-ci.org/kubeless/kubeless.github.io)
+
 # Kubeless site
 
 This repository contains the [kubeless.io](http://kubeless.io) source code. We use [middleman](https://middlemanapp.com) to generate the final HTML code.
