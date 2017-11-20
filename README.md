@@ -1,40 +1,43 @@
-`kubeless` is a Kubernetes-native serverless framework. It runs on top of your Kubernetes cluster and allows you to deploy small unit of code without having to build container images. With kubeless you can build advanced applications that tie together services using functions.
+# Kubeless site
 
-We believe that Kubeless is the most Kubernetes native serverless implementation available. Kubeless is built on top of Kubernetes from scratch and is making use of core Kubernetes primitives (e.g deployments, services, configmaps, ingress), this allows us to benefit directly from the Kubernetes core and to not re-invent the wheel. In addition, Kubeless makes use of Prometheus for monitoring functions calls. This is built directly in the runtimes.
+This repository contains the [kubeless.io](http://kubeless.io) source code. We use [middleman](https://middlemanapp.com) to generate the final HTML code.
 
-## Architecture
+We recommend you the [middlemant documentation site](https://middlemanapp.com/basics/install/). There you will find useful tutorials, videos and advanced configuration guides.
 
-Kubeless uses the Kubernetes controller framework. We extend the Kubernetes API using a ThirdPartyResource function definition (migration to Custom Resource Defintion is under way) to create a new _Function_ object Kind. Our controller is running in the cluster as a standard deployment then watches the _Function_ endpoints and launches _runtimes_ containing the function code. Functions are injected into our default runtimes using ConfigMaps. Dependencies are currently handled using init-containers. These containers fetch all the dependencies and share them with the function runtimes using volumes.
+## Structure
 
-The runtimes are pre-built docker images that wrap the functions in an HTTP server or in a Kafka consumer. Indeed, to be able to trigger functions via events we currently use [Kafka](https://kafka.apache.org).
+This project follows the basic structure of `middleman` projects. All the files related to the site generation are located in the `source` folder. In this folder, we can find the following files and folders:
 
-## Features
+* **assets**: it includes all the files related to the frontend. Here we will place images, styles and javascript files.
+* **layouts**: these are the `middleman` layouts. It defines the basic layout for all the pages but you can create new ones if it's required. Also, we use partials to reduce the HAML code in main layout.
+* **x.html.md**: All the pages of the site, written in markdown.
 
-* Python ,Node.js and Ruby support.
-* CLI compliant with AWS Lambda CLI.
-* Event triggers using Kafka messaging system.
-* Prometheus monitoring of functions calls and function latency by default.
-* Serverless [plugin](https://github.com/serverless/serverless-kubeless.git)
-* Web based [UI](https://github.com/kubeless/kubeless-ui)
+To define custom data to inject to the project we can use the `data` folder. It also includes an YAML example file with some links to Bitnami products. You have more information about custom data in the [middleman documentation](https://middlemanapp.com/advanced/data-files/).
 
-## Issues
+If you need to add any Ruby code to the project, you can create the files in the `lib` folder. These files will be load automatically by middleman. The middlman documentation includes more information about [helpers](https://middlemanapp.com/basics/helper-methods/) and [external ruby dependencies](https://middlemanapp.com/basics/directory-structure/#lib-directory).
 
-If you experience any problems please file an [issue](https://github.com/kubeless/kubeless/issues).
+Once we build the project, all the files will be placed in the `build` folder. These files can be served directly in server.
 
-Any help welcome, please join the project
+## Configuration
 
-## Roadmap
+All the middleman configuration is present in the [config.rb file](https://github.com/kubeless/kubeless.github.io/blob/master/config.rb). As you can see, the file is very simple. This is intentional because every project is different and it will require a different configuration. The config file only applies the common configuration of all our projects.
 
-* Add Opentracing support.
-* Add additional language runtimes.
-* Improve dependency handling via builtin registry and dynamic environment creation.
-* Provide Functions repository (see [https://github.com/kubeless/functions](https://github.com/kubeless/functions).
-* Provide additional event system as plugins (e.g nats.io, redis, RabbitMQ).
-* Provide function authentication support.
-* Ability to add Ingress rules to subset of functions. (**DONE** in v0.1.0)
+## Development
 
-## Screencasts
+To start the development server execute the following command:
 
-Demo of event based function triggers with Minio. Click on the picture below to play the screencast.
+```
+docker-compose up -d
+```
 
-[![screencast](https://img.youtube.com/vi/AxZuQIJUX4s/0.jpg)](https://www.youtube.com/watch?v=AxZuQIJUX4s)
+The example site will be available on [http://localhost:4567](http://localhost:4567). The domain can change depending on your docker configuration. If you're using docker in a virtual machine, please check the [Docker Machine section](#docker-machine).
+
+All the changes you perform in the `config.rb` file and the `source` folder will be applied directly. Once you reload the page, the changes will appear.
+
+### Docker Machine
+
+If you're running `docker` in a virtual machine, the URL of the project will be [http://VIRTUAL_MACHINE_IP:4567](http://VIRTUAL_MACHINE_IP:4567). Remember to change the `VIRTUAL_MACHINE_IP` placeholder with the IP of your virtual machine.
+
+## Deployment
+
+This project is deployed through [Travis CI](https://travis-ci.org/kubeless/kubeless.github.io) and it uses [GitHub pages](https://pages.github.com/) as hosting. On every commit in `master`, the site is deployed automatically.
