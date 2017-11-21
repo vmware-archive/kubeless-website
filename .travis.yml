@@ -14,14 +14,13 @@ before_install:
 jobs:
   include:
     - stage: build
-      env:
-        - MIDDLEMAN_HTTP_PREFIX="/middleman-boilerplate"
-      script:  docker-compose run --rm -e MIDDLEMAN_HTTP_PREFIX=$MIDDLEMAN_HTTP_PREFIX middleman bundle exec middleman build
+      script:  docker-compose run --rm middleman bundle exec middleman build
 
 deploy:
   - provider: pages
     local_dir: ./build/
     skip_cleanup: true
+    fqdn: kubeless.io
     github_token: $GITHUB_TOKEN
     on:
       branch: master

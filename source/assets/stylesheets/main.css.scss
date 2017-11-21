@@ -1,0 +1,20 @@
+// First, import all the custom variables
+@import 'vars/all';
+// Then, import the components
+@import 'components/all';
+
+// Resets and general stuff
+body {
+  background-color: $kubeless-base;
+}
+
+.page-layout {
+  img {
+    max-width: 100%;
+    border: 1px solid $kubeless-light;
+  }
+}
+
+pre {
+  background-color: #f3f4f4;
+}
