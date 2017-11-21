@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kubeless/kubeless.github.io.svg?branch=master)](https://travis-ci.org/kubeless/kubeless.github.io)
+[![Build Status](https://travis-ci.org/kubeless/kubeless-website.svg?branch=master)](https://travis-ci.org/kubeless/kubeless-website)
 
 # Kubeless site
 
