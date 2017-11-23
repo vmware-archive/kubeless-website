@@ -1,0 +1,102 @@
+.Index
+  .Index__Hero
+    .Index__Hero__Content.gradient-135-accent.elevation-1
+      .container
+        = partial 'layouts/partials/header'
+        .text-c.margin-b-reset.padding-b-huge.padding-t-big
+          %h1.type-color-light.type-giant.margin-b-reset
+            = image_tag 'logo-white.svg', class: 'Index__Hero__Logo'
+          %h3.type-color-light.margin-reset
+            The Kubernetes Native Serverless Framework
+          %h4.type-color-light.margin-t-reset
+            Build advanced applications with FaaS on top of Kubernetes
+          .text-c.margin-t-bigger
+            %a.margin-h-normal.button.button-action{rel: 'noopener', target: '_blank',
+              href: 'https://github.com/kubeless/kubeless/blob/master/README.md'}
+              Get started
+            %a.margin-h-normal.button{rel: 'noopener', target: '_blank',
+              href: 'https://github.com/kubeless/kubeless#installation'}
+              Installation
+            %a.margin-h-normal.button{rel: 'noopener', target: '_blank',
+              href: 'https://github.com/kubeless/kubeless'}
+              GitHub
+    .Index__Hero__Bar.gradient-brand.Index__Hero__Bar--pattern
+    .Index__Hero__Bar.gradient-225-brand
+
+  .container.container-small.margin-t-enormous
+    %h1
+      What is Kubeless?
+    .row.collapse-b-tablet
+      .col-12
+        %p
+          Kubeless is a Kubernetes-native serverless framework that lets you deploy small bits of
+          code (functions) without having to worry about the underlying infrastructure. It is
+          designed to be deployed on top of a Kubernetes cluster and take advantage of all the
+          great Kubernetes primitives. If you are looking for an open source serverless solution
+          that clones what you can find on AWS Lambda, Azure functions, and Google cloud functions,
+          Kubeless is for you!
+        %p
+          Kubeless Includes:
+        %ul
+          %li
+            Support for Python ,Node.js,  Ruby, .Net Core, and custom runtimes
+          %li
+            CLI compliant with AWS Lambda CLI
+          %li
+            Event triggers using Kafka messaging system and HTTP events
+          %li
+            Prometheus monitoring of functions calls and function latency by default
+          %li
+            = link_to 'Serverless', 'https://serverless.com', rel: 'noopener', target: '_blank'
+            Framework
+            = link_to 'plugin', 'https://github.com/serverless/serverless-kubeless',
+                      rel: 'noopener', target: '_blank'
+
+  %section.gradient-45-accent.padding-v-enormous.margin-t-giant.elevation-1
+    .container
+      .row.align-center.collapse-b-tablet
+        .col-5
+          %h3.type-color-iron How does it work? Check it out!
+          %p.type-color-iron
+            Kubeless uses a
+            = link_to 'Custom Resource Definition', |
+                      'https://kubernetes.io/docs/tasks/access-kubernetes-api/extend-api-' + |
+                      'custom-resource-definitions/', rel: 'noopener', target: '_blank', |
+                      class: 'type-color-action' |
+            to be able to create functions as custom
+            kubernetes resources. It then runs an in-cluster controller that watches these custom
+            resources and launches runtimes on-demand. The controller dynamically injects the
+            functions code into the runtimes and make them available over HTTP or via a PubSub
+            mechanism.
+        .col-1
+        .col-6
+          %iframe{src:"https://www.youtube-nocookie.com/embed/AxZuQIJUX4s?rel=0&amp;showinfo=0",
+                  frameborder: "0", allowfullscreen: true, width:"100%", height:"315",
+                  class: 'elevation-3'}
+
+  .container.container-small.margin-v-giant
+    %h1 Ready to Get Started?
+    %p
+      Kubeless is an open-source project. We encourage you to check out the latest version and
+      give it a try.  If you like it, please share your thoughts (#kubeless).  If you have
+      suggestions or contributions to the code or documentation,
+      %strong we encourage and welcome your participation.
+    %p.margin-t-bigger.text-c.margin-reset
+      %a.margin-h-normal{ href: 'https://github.com/kubeless/kubeless/releases',
+        rel: 'noopener', target: '_blank'}
+        Download
+      %span.type-color-iron /
+      %a.margin-h-normal{ href: 'https://github.com/kubeless/kubeless#installation',
+        rel: 'noopener', target: '_blank'}
+        Installation
+      %span.type-color-iron /
+      %a.margin-h-normal{href: 'https://github.com/kubeless/kubeless/blob/master/docs/dev-guide.md',
+        rel: 'noopener', target: '_blank'}
+        Developer's guide
+      %span.type-color-iron /
+      %a.margin-h-normal{ href: 'https://github.com/kubeless/kubeless/blob/master/CONTRIBUTING.md',
+        rel: 'noopener', target: '_blank'}
+        Contribute
+      %span.type-color-iron /
+      %a.margin-h-normal{ href: '/docs' }
+        Documentation

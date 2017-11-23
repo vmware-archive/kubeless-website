@@ -1,14 +1,10 @@
 - label: Home
   url: /
-- label: Install
-  url: /install
-- label: Examples
-  url: /examples
-- label: Build
-  url: /building
-- label: UI
-  url: /ui
+- label: Documentation
+  url: /docs
+- label: Kubeless UI
+  url: https://github.com/kubeless/kubeless-ui
 - label: Serverless Plugin
-  url: /serverless
-- label: News
-  url: /news
+  url: https://serverless.com/framework/docs/providers/kubeless/guide/intro/
+- label: GitHub
+  url: https://github.com/kubeless
