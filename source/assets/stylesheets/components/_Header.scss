@@ -1,13 +1,24 @@
 .Header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid $kubeless-light;
-
   &__Logo {
-    img {
-      height: 40px;
+    a {
+      img {
+        height: 2em;
+        vertical-align: middle;
+      }
+
+      span {
+        display: block;
+        color: $white;
+        font-size: .7em;
+        padding-left: 39px;
+        margin-top: -5px;
+      }
+    }
+  }
+
+  nav {
+    a {
+      color: $white;
     }
   }
 }

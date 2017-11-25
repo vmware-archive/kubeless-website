@@ -1,10 +1,12 @@
 .Footer {
+  // Footer CSS code
+  background-color: $dark-alternative;
 
-  .logo {
-    height: 30px;
+  &__Border {
+    border-top: 1px solid #e6e7e8;
   }
 
-  .underline {
-    text-decoration: underline;
+  &__Logo {
+    max-height: 2em;
   }
 }

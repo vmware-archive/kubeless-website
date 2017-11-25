@@ -1,0 +1,42 @@
+$rotation: 4deg;
+
+.Index {
+  &__Hero {
+    position: relative;
+    min-height: 35em;
+    padding-bottom: 14em;
+    overflow: hidden;
+
+    &__Logo {
+      height: 1.2em;
+    }
+
+    &__Bar {
+      bottom: 5em;
+      height: 200px;
+      left: 50%;
+      margin-left: -100%;
+      position: absolute;
+      width: 200%;
+      transform: rotateZ($rotation);
+      overflow: hidden;
+
+      &--pattern {
+        transform: rotateZ(-($rotation));
+
+        &:after {
+          content: '';
+          bottom: -100px;
+          width: 100%;
+          background-size: 89px 77px;
+          height: 200%;
+          position: absolute;
+          transform: rotateZ($rotation);
+          background-image: url(/assets/images/pattern.png);
+          background-repeat: repeat;
+          opacity: .6;
+        }
+      }
+    }
+  }
+}

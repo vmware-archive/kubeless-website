@@ -2,19 +2,27 @@
 @import 'vars/all';
 // Then, import the components
 @import 'components/all';
+// Finally, pages
+@import 'pages/all';
 
 // Resets and general stuff
 body {
-  background-color: $kubeless-base;
+  background-color: $white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-.page-layout {
-  img {
-    max-width: 100%;
-    border: 1px solid $kubeless-light;
-  }
+main {
+  flex: 1;
+}
+
+// Should we add this to Bitnami UI?
+img {
+  max-width: 100%;
 }
 
 pre {
   background-color: #f3f4f4;
+  overflow: auto;
 }
