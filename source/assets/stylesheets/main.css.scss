@@ -17,6 +17,13 @@ main {
   flex: 1;
 }
 
+// Reduce the font-size on mobile version
+@media (max-width: 29.9375em) {
+  html {
+    font-size: 90%;
+  }
+}
+
 // Should we add this to Bitnami UI?
 img {
   max-width: 100%;
