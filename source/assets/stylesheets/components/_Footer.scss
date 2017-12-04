@@ -9,4 +9,10 @@
   &__Logo {
     max-height: 2em;
   }
+
+  @media (max-width: 29.9375em) {
+    [class^="col"] {
+      text-align: center;
+    }
+  }
 }
