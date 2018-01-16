@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 # Configure the assets folders
 set :build_dir, 'build'
 set :css_dir, 'assets/stylesheets'
@@ -9,6 +12,11 @@ Haml::TempleEngine.disable_option_validator!
 
 # Use haml in this project
 set :haml, { format: :html5 }
+
+# Get the latest release tag from Github
+response = Net::HTTP.get(URI('https://api.github.com/repos/kubeless/kubeless/releases/latest'))
+tag = JSON.parse(response)['tag_name']
+set :latest_release_tag, tag
 
 # Remove .html in the URL
 activate :directory_indexes
