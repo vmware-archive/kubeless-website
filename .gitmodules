@@ -1,0 +1,3 @@
+[submodule "kubeless-src"]
+	path = kubeless-src
+	url = https://github.com/kubeless/kubeless

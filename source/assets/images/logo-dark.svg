@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>kubeless</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="kubeless">
+            <path d="M221.179967,35.9981381 C240.309891,24.9534714 271.33166,24.9569554 290.455549,35.9981381 L428.997725,115.9855 C448.127649,127.030167 463.635516,153.897549 463.635516,175.979915 L463.635516,335.954639 C463.635516,358.043973 448.121614,384.907871 428.997725,395.949054 L290.455549,475.936416 C271.325625,486.981083 240.303856,486.977599 221.179967,475.936416 L82.6377913,395.949054 C63.5078674,384.904387 48,358.037005 48,335.954639 L48,175.979915 C48,153.890581 63.5139019,127.026683 82.6377913,115.9855 L221.179967,35.9981381 Z" id="Polygon" fill="#162D50"></path>
+            <g id="Less" transform="translate(113.000000, 143.000000)" fill="#FFFFFF">
+                <rect id="Rectangle" x="0" y="0" width="40" height="226" rx="5"></rect>
+                <rect id="Rectangle-6" x="0" y="186" width="134" height="40" rx="5"></rect>
+            </g>
+            <g id="Less" transform="translate(332.000000, 255.500000) scale(-1, 1) translate(-332.000000, -255.500000) translate(265.000000, 142.000000)" fill="#FFFFFF">
+                <rect id="Rectangle" x="0" y="0" width="40" height="227" rx="5"></rect>
+                <rect id="Rectangle-6" x="0" y="187" width="134" height="40" rx="5"></rect>
+            </g>
+            <g id="Squares" transform="translate(175.000000, 144.000000)">
+                <rect id="Rectangle-7" fill="#6AA850" x="0" y="0" width="72" height="72" rx="5"></rect>
+                <rect id="Rectangle-7" fill="#FFFFFF" x="90" y="0" width="72" height="72" rx="5"></rect>
+                <rect id="Rectangle-7" fill="#6DB3CA" x="90" y="90" width="72" height="72" rx="5"></rect>
+                <rect id="Rectangle-7" fill="#495ADC" x="0" y="90" width="72" height="72" rx="5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
