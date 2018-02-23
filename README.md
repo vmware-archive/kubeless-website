@@ -46,8 +46,8 @@ This project is deployed through [Travis CI](https://travis-ci.org/kubeless/kube
 
 ## Docs
 
-The documentation pages are generated on the fly when running `middleman`. In the file [`config.rb`](./config.rb) we obtain the latest tag available (or we use a hardcoded commit) for checking out the kubeless submodule that is at `kubeless-src`.
+The documentation pages are generated on the fly when running `middleman`. In the file [`config.rb`](./config.rb) we use the status of the submodule `kubeless-src` for generating the different doc pages.
 
-After that the files under `kubeless-src/docs/*md` are copied into the `source/docs/` folder adding the `middleman` frontmatter. The folders `kubeless-src/docs/img` and `kubeless-src/docs/misc` are copied as well.
+The files under `kubeless-src/docs/*md` are copied into the `source/docs/` folder adding the `middleman` frontmatter. The folders `kubeless-src/docs/img` and `kubeless-src/docs/misc` are copied as well.
 
 The links for the different documentation pages are manually set in the file `source/layouts/partials/_links.html.haml`.
