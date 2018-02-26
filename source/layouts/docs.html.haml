@@ -1,0 +1,23 @@
+!!!
+%html
+  / Head information
+  = partial 'layouts/partials/head'
+
+  / Main content
+  %body
+    .gradient-135-accent.elevation-1
+      .container
+        = partial 'layouts/partials/header'
+    %main.container.margin-t-big
+      .row.collapse-b-phone-land
+        .col-3
+          = partial 'layouts/partials/links'
+        .col-9
+          = yield
+
+    .margin-t-giant
+      = partial 'layouts/partials/footer'
+
+%script{src: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"}
+:javascript
+  hljs.initHighlightingOnLoad();

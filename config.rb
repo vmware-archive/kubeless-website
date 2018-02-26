@@ -1,6 +1,12 @@
 require 'net/http'
 require 'json'
 
+# use redcarpet as the markdown engine
+set :markdown_engine, :redcarpet
+# configure redcarpet to use github style fenced code blocks
+# (tripe back ticks ```) to denote code
+set :markdown, tables: true, fenced_code_blocks: true
+
 # Configure the assets folders
 set :build_dir, 'build'
 set :css_dir, 'assets/stylesheets'
@@ -13,11 +19,33 @@ Haml::TempleEngine.disable_option_validator!
 # Use haml in this project
 set :haml, { format: :html5 }
 
-# Get the latest release tag from Github
-response = Net::HTTP.get(URI('https://api.github.com/repos/kubeless/kubeless/releases/latest'))
-tag = JSON.parse(response)['tag_name']
-set :latest_release_tag, tag
-
+# Populate docs pages
+docs_source_dir = 'kubeless-src'
+Dir["kubeless-src/docs/*.md"].each do |f|
+  # Avoid to parse files twice or the README which just contains a warning
+  next if f.include?('.html.md') || f.include?('README')
+  f_dir = File.dirname f
+  f_name = File.basename f, ".md"
+  new_file = "source/docs/#{f_name}.html.md"
+  File.open(new_file, 'w') do |fo|
+    # We need to include middleman frontmatter
+    fo.puts """---
+title: Kubeless
+description: Kubeless is a Kubernetes-native serverless framework
+layout: docs
+---
+"""
+    File.foreach(f) do |li|
+      fo.puts li
+    end
+  end
+end
+extra_dirs = ["kubeless-src/docs/img", "kubeless-src/docs/misc"]
+extra_dirs.each do |d|
+  dir_name = File.basename d
+  FileUtils.copy_entry d, "source/docs/#{dir_name}"
+end
+ 
 # Remove .html in the URL
 activate :directory_indexes
 

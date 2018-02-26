@@ -1,0 +1,56 @@
+%h4.margin-t-bigger
+    = image_tag 'logo-dark.svg', alt: 'Kubeless logo', class: 'float-l avatar avatar-medium'
+    .padding-v-small
+        Documentation
+%ul.remove-style.padding-small
+    %li
+        %b Usage
+    %li.margin-v-small
+        = link_to '/docs/quick-start' do
+            Quick Start
+    %li.margin-v-small
+        = link_to '/docs/runtimes' do
+            Runtimes
+    %li.margin-v-small
+        = link_to '/docs/routing' do
+            Routing
+    %li.margin-v-small
+        = link_to '/docs/monitoring' do
+            Monitoring
+    %li.margin-v-small
+        = link_to '/docs/autoscaling' do
+            Autoscaling
+    %li.margin-v-small
+        = link_to '/docs/use-existing-kafka' do
+            Use a Custom Apache Kafka
+    %li.padding-t-big
+        %b Cloud Providers
+    %li.margin-v-small
+        = link_to '/docs/kubeless-on-azure-container-services' do
+            Azure Container Services
+    %li.margin-v-small
+        = link_to '/docs/GKE-deployment' do
+            Google Kubernetes Engine
+    %li.padding-t-big
+        %b Development
+    %li.margin-v-small
+        = link_to '/docs/architecture' do
+            Architecture
+    %li.margin-v-small
+        = link_to '/docs/dev-guide' do
+            Development Guide
+    %li.margin-v-small
+        = link_to '/docs/implementing-new-runtime' do
+            Implementing a New Runtime
+    %li.margin-v-small
+        = link_to '/docs/debugging' do
+            Debugging
+    %li.margin-v-small
+        = link_to '/docs/function-controller-configuration' do
+            Kubeless Controller Configuration
+    %li.margin-v-small
+        = link_to '/docs/release-flow' do
+            Release Flow
+    %li.margin-v-small
+        = link_to '/docs/troubleshooting' do
+            Troubleshooting

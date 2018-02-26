@@ -32,4 +32,19 @@ img {
 pre {
   background-color: #f3f4f4;
   overflow: auto;
+
+  .hljs {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  code {
+    word-break: break-all;
+  }
+}
+
+// TODO: Remove this once we fix the issue with the grid
+// https://github.com/bitnami/hex/issues/151
+.col-9 {
+  max-width: 75%;
 }
