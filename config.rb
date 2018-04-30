@@ -5,7 +5,7 @@ require 'json'
 set :markdown_engine, :redcarpet
 # configure redcarpet to use github style fenced code blocks
 # (tripe back ticks ```) to denote code
-set :markdown, tables: true, fenced_code_blocks: true
+set :markdown, tables: true, fenced_code_blocks: true, autolink: true, no_intra_emphasis: true, strikethrough: true, hard_wrap: true, with_toc_data: true
 
 # Configure the assets folders
 set :build_dir, 'build'
