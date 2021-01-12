@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="autoscaling-function-deployment-in-kubeless">Autoscaling function deployment in Kubeless</h1>
+
+<p>This document gives you an overview of how we do autoscaling for functions in Kubeless and also give you a walkthrough how to configure it for custom metric.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Kubernetes introduces <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HorizontalPodAutoscaler</a> for pod autoscaling. In kubeless, each function is deployed into a separate Kubernetes deployment, so naturally we leverage HPA to automatically scale function based on defined workload metrics.</p>
+
+<p>If you&#39;re on Kubeless CLI, this below command gives you an idea how to setup autoscaling for deployed function:</p>
+
+<pre><code class="console">$ kubeless autoscale --help
+autoscale command allows user to list, create, delete autoscale rule
+for function on Kubeless
+
+Usage:
+  kubeless autoscale SUBCOMMAND [flags]
+  kubeless autoscale [command]
+
+Available Commands:
+  create      automatically scale function based on monitored metrics
+  delete      delete an autoscale from Kubeless
+  list        list all autoscales in Kubeless
+
+Flags:
+  -h, --help   help for autoscale
+
+Use &quot;kubeless autoscale [command] --help&quot; for more information about a command.
+</code></pre>
+
+<p>Once you create an autoscaling rule for a specific function (with <code>kubeless autoscale create</code>), the corresponding HPA object will be added to the system which is going to monitor your function and auto-scale its pods based on the autoscaling rule you define in the command. The default metric is CPU, but you have option to do autoscaling with custom metrics. At this moment, Kubeless supports <code>qps</code> which stands for number of incoming requests to function per second.</p>
+
+<pre><code class="console">$ kubeless autoscale create --help
+automatically scale function based on monitored metrics
+
+Usage:
+  kubeless autoscale create &lt;name&gt; FLAG [flags]
+
+Flags:
+  -h, --help               help for create
+      --max int32          maximum number of replicas (default 1)
+      --metric string      metric to use for calculating the autoscale. Supported
+      metrics: cpu, qps (default &quot;cpu&quot;)
+      --min int32          minimum number of replicas (default 1)
+  -n, --namespace string   Specify namespace for the autoscale
+      --value string       value of the average of the metric across all replicas.
+      If metric is cpu, value is a number represented as percentage. If metric
+      is qps, value must be in format of Quantity
+</code></pre>
+
+<p>The below part will walk you though setup need to be done in order to make function auto-scaled based on <code>qps</code> metric.</p>
+
+<h2 id="autoscaling-based-on-cpu-usage">Autoscaling based on CPU usage</h2>
+
+<p>To autoscale based on CPU usage, it is <em>required</em> that your function has been deployed with CPU request limits.</p>
+
+<p>To do this, use the <code>--cpu</code> parameter when deploying your function. Please see the <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu">Meaning of CPU</a> for the format of the value that should be passed. </p>
+
+<h3 id="further-reading">Further reading</h3>
+
+<p><a href="https://github.com/kubernetes/community/blob/master/contributors/design-proposals/custom-metrics-api.md">Custom Metrics API</a></p>
+
+<p><a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-custom-metrics">Support for custom metrics</a></p>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

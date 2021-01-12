@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="kubeless-architecture">Kubeless architecture</h1>
+
+<p>This doc covers the architectural design of Kubeless and directory structure of the repository.</p>
+
+<h2 id="concepts">Concepts</h2>
+
+<p>Kubeless is built around below core concepts:</p>
+
+<ul>
+<li>Functions</li>
+<li>Triggers</li>
+<li>Runtime</li>
+</ul>
+
+<h3 id="functions">Functions</h3>
+
+<p>A <em>Function</em> is representation of the code to be executed. Along with the code a <em>Function</em> contains metadata about its runtime dependencies, build instructions etc. A <em>Function</em> has a independent life-cycle. The following methods are supported:</p>
+
+<ul>
+<li>Deploy - deploy function as function instances. This step may involve building the function image or re-use pre-generated image and deploying it on the cluster.</li>
+<li>Execute - invoke a function directly i.e) not through any event source</li>
+<li>Get - Returns the function metadata and spec</li>
+<li>Update - Modify the function specification and its metadata</li>
+<li>Delete - Deletes a function, and clean up any resource provisioned for the function from the cluster</li>
+<li>List - Show the list of functions and their metadata</li>
+<li>Logs - Return the logs generated by a function</li>
+</ul>
+
+<h3 id="triggers">Triggers</h3>
+
+<p>A <em>Trigger</em> represents an event source the functions associated to it. When an event occurs in the event source, Kubeless will ensure that the associated function are invoked <strong>at most once</strong>. A Trigger can be associated to a single function or to several ones depending on the event source type. They are decoupled from the life-cycle of functions and can be independently operated with the following methods:</p>
+
+<ul>
+<li>Create - create a new trigger with details on event source and associated functions</li>
+<li>Update - Modify the trigger specification</li>
+<li>Delete - Deletes a trigger, and clean up any resource provisioned for the trigger</li>
+<li>List - Show the list of trigger and their specification</li>
+</ul>
+
+<h3 id="runtime">Runtime</h3>
+
+<p>A <em>Runtime</em> represents language and runtime specific environment in which function will be executed. Please see <a href="/docs/runtimes">runtimes</a> for more details.</p>
+
+<h2 id="design">Design</h2>
+
+<p>Kubeless leverages multiple concepts of Kubernetes in order to support deploy functions on top of it. In details, we have been using:</p>
+
+<ul>
+<li>A Custom Resource Definitions (CRD) is used to represent function</li>
+<li>Each event source is modelled as a separate Trigger CRD object</li>
+<li>Separate Custom Resource Definitions controller to handle CRUD operations corresponding to CRD object</li>
+<li>Deployment / Pod to run the corresponding runtime.</li>
+<li>Configmap to inject function&#39;s code to the runtime pod.</li>
+<li>Init-container to load the dependencies that function might have.</li>
+<li>Service to expose function.</li>
+<li>Ingress resources to expose functions externally</li>
+</ul>
+
+<p>Use of Kubernetes CRD&#39;s and CRD controllers forms the core design tenet of Kubeless. Use of separate CRD&#39;s for functions and triggers provides clear separation of concerns. Use of separate CRD controllers keeps the code decoupled and modular.</p>
+
+<h3 id="functions">Functions</h3>
+
+<p>When you install kubeless, there is a CRD <code>functions.kubeless.io</code> created to represent <em>Function</em>:</p>
+
+<pre><code class="yaml">$ kubectl get customresourcedefinition functions.kubeless.io -o yaml
+apiVersion: v1
+items:
+- apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    ...
+    name: functions.kubeless.io
+    ...
+    selfLink: /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io
+  spec:
+    group: kubeless.io
+    names:
+      kind: Function
+      listKind: FunctionList
+      plural: functions
+      singular: function
+    scope: Namespaced
+    version: v1beta1
+</code></pre>
+
+<p>Then function custom objects will be created under this CRD endpoint. A function object looks like this:</p>
+
+<pre><code class="yaml">$ kubectl get function get-python -o yaml
+apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  clusterName: &quot;&quot;
+  creationTimestamp: 2018-03-25T19:13:07Z
+  finalizers:
+  - kubeless.io/function
+  generation: 0
+  labels:
+    created-by: kubeless
+    function: get-python
+  name: get-python
+  namespace: default
+  resourceVersion: &quot;9219&quot;
+  selfLink: /apis/kubeless.io/v1beta1/namespaces/default/functions/get-python
+  uid: 8d25a793-3060-11e8-ad89-08002730c417
+spec:
+  checksum: sha256:d251999dcbfdeccec385606fd0aec385b214cfc74ede8b6c9e47af71728f6e9a
+  deployment:
+    metadata:
+      creationTimestamp: null
+    spec:
+      strategy: {}
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - name: &quot;&quot;
+            resources: {}
+    status: {}
+  deps: &quot;&quot;
+  function: |
+    def foo(event, context):
+        return &quot;hello world&quot;
+  function-content-type: text
+  handler: helloget.foo
+  horizontalPodAutoscaler:
+    metadata:
+      creationTimestamp: null
+    spec:
+      maxReplicas: 0
+      scaleTargetRef:
+        kind: &quot;&quot;
+        name: &quot;&quot;
+    status:
+      conditions: null
+      currentMetrics: null
+      currentReplicas: 0
+      desiredReplicas: 0
+  runtime: python2.7
+  service:
+    ports:
+    - name: http-function-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      created-by: kubeless
+      function: get-python
+    type: ClusterIP
+  timeout: &quot;180&quot;
+</code></pre>
+
+<p><code>function.spec</code> contains function&#39;s details like code, handler, runtime and probably its dependency file etc.</p>
+
+<p>Kubeless ships with a CRD controller named <code>function-controller</code> which continuously watch changes to function objects and react accordingly. By default function-controller is installed in <code>kubeless-controller-manager</code> deployment which is deployed into <code>kubeless</code> namespace. Function-controller watches for create events corresponding to creation of <em>Function</em> object. Function-controller creates a deployment for the function, and exposes the function as a clusterIP service. Both deployment and service resource created for the function can be controlled by the function creator by explicitly specifying deployment spec and service spec respectively in the <code>function.spec</code>.</p>
+
+<p>Runtime image used for the function deployment could be chosen by one of the below options:</p>
+
+<ul>
+<li>User explicitly specifies custom runtime image to be used for the function</li>
+<li>Image artifact is generated on the fly by the function builder</li>
+<li>A pre-built image is used for each language and version combination. A configmap is used to inject the function code from function.spec.function into the corresponding k8s runtime pod.</li>
+</ul>
+
+<p>Function-controller on receiving Function CRD object deletion event, cleans up all the resources (deployment, service, configmap etc) provisioned.</p>
+
+<h3 id="http-triggers">HTTP triggers</h3>
+
+<p>When you install kubeless, there is a CRD <code>httptriggers.kubeless.io</code> created to represent HTTP triggers:</p>
+
+<pre><code class="console">$  kubectl get customresourcedefinition httptriggers.kubeless.io -o yaml
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: httptriggers.kubeless.io
+  resourceVersion: &quot;102&quot;
+  selfLink: /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/httptriggers.kubeless.io
+  uid: 0aa4a346-2ff4-11e8-ad89-08002730c417
+spec:
+  group: kubeless.io
+  names:
+    kind: HTTPTrigger
+    listKind: HTTPTriggerList
+    plural: httptriggers
+    singular: httptrigger
+  scope: Namespaced
+  version: v1beta1
+</code></pre>
+
+<p>HTTP trigger custom objects will be created under <code>httptriggers.kubeless.io</code> CRD endpoint. An example HTTP trigger object looks like this:</p>
+
+<pre><code class="console">$ kubectl get httptrigger get-python -o yaml
+apiVersion: kubeless.io/v1beta1
+kind: HTTPTrigger
+metadata:
+  labels:
+    created-by: kubeless
+  name: get-python
+  namespace: default
+spec:
+  function-name: get-python
+  host-name: get-python.192.168.99.100.nip.io
+  ingress-enabled: true
+  path: func
+  tls: false
+</code></pre>
+
+<p>HTTP trigger object spec contains below fields:</p>
+
+<ul>
+<li>function-name - name of the associated function that need to be invoked when URL corresponding to http trigger is accessed</li>
+<li>host-name - name used for virtual hosting</li>
+<li>path - route requests with this path to function service</li>
+<li>tls - true if TLS is to be enabled</li>
+</ul>
+
+<p><code>kubeless-controller-manager</code> ships with http trigger CRD controller which watches for the HTTP trigger CRD objects and configures Kubernetes ingress accordingly.</p>
+
+<h3 id="cronjob-triggers">Cronjob triggers</h3>
+
+<pre><code class="console">$ kubectl get customresourcedefinition cronjobtriggers.kubeless.io -o yaml
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: cronjobtriggers.kubeless.io
+  selfLink: /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/cronjobtriggers.kubeless.io
+spec:
+  group: kubeless.io
+  names:
+    kind: CronJobTrigger
+    listKind: CronJobTriggerList
+    plural: cronjobtriggers
+    singular: cronjobtrigger
+  scope: Namespaced
+  version: v1beta1
+</code></pre>
+
+<p>Cronjob trigger custom objects will be created under <code>cronjobtriggers.kubeless.io</code> CRD endpoint. An example Cronjob trigger object looks like this:</p>
+
+<pre><code class="console">$ kubectl get cronjobtrigger scheduled-get-python -o yaml
+apiVersion: kubeless.io/v1beta1
+kind: CronJobTrigger
+metadata:
+  labels:
+    created-by: kubeless
+    function: scheduled-get-python
+  name: scheduled-get-python
+  namespace: default
+spec:
+  function-name: scheduled-get-python
+  schedule: &#39;* * * * *&#39;
+</code></pre>
+
+<p>Cronjob trigger object spec contains below fields:</p>
+
+<ul>
+<li>function-name - name of the associated function that need to be invoked periodically as per specified</li>
+<li>schedule - it takes a Cron format string, e.g. 0 * * * * or @hourly, as schedule time of its jobs to be created and executed.</li>
+</ul>
+
+<p><code>kubeless-controller-manager</code> ships with Cronjob trigger CRD controller which watches for the Cronjob trigger CRD objects and configures Kubernetes cronjobs to run the functions at scheduled intrerval time.</p>
+
+<h3 id="kafka-triggers">Kafka triggers</h3>
+
+<pre><code class="console"> kubectl get customresourcedefinition kafkatriggers.kubeless.io -o yaml
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: kafkatriggers.kubeless.io
+  selfLink: /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/kafkatriggers.kubeless.io
+  uid: 0aa3988f-2ff4-11e8-ad89-08002730c417
+spec:
+  group: kubeless.io
+  names:
+    kind: KafkaTrigger
+    listKind: KafkaTriggerList
+    plural: kafkatriggers
+    singular: kafkatrigger
+  scope: Namespaced
+  version: v1beta1
+</code></pre>
+
+<p>Kafka trigger custom objects will be created under <code>kafkatriggers.kubeless.io</code> CRD endpoint. An example Kafka trigger object looks like this:</p>
+
+<pre><code class="console"> $ kubectl get kafkatrigger s3-python-kafka-trigger -o yaml
+apiVersion: kubeless.io/v1beta1
+kind: KafkaTrigger
+metadata:
+  labels:
+    created-by: kubeless
+  name: s3-python-kafka-trigger
+  namespace: default
+spec:
+  functionSelector:
+    matchLabels:
+      created-by: kubeless
+      topic: s3-python
+  topic: s3-python
+</code></pre>
+
+<p>Kafka trigger object spec contains below fields:</p>
+
+<ul>
+<li>functionSelector - label selector that selects list of matching function</li>
+<li>topic - Kafka topic messages to which the functions associated must be invoked.</li>
+</ul>
+
+<h2 id="kubeless-command-line-client">Kubeless command-line client</h2>
+
+<p>Together with <code>kubeless-controller-manager</code>, we provide <code>kubeless</code> cli which enables users to interact with Kubeless system. At this moment, Kubeless cli provides these below actions:</p>
+
+<pre><code class="console">$ kubeless --help
+Serverless framework for Kubernetes
+
+Usage:
+  kubeless [command]
+
+Available Commands:
+  autoscale         manage autoscale to function on Kubeless
+  completion        Output shell completion code for the specified shell.
+  function          function specific operations
+  get-server-config Print the current configuration of the controller
+  help              Help about any command
+  topic             manage message topics in Kubeless
+  trigger           trigger specific operations
+  version           Print the version of Kubeless
+
+Flags:
+  -h, --help   help for kubeless
+
+Use &quot;kubeless [command] --help&quot; for more information about a command.
+</code></pre>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>Kubeless controller is written in Go programming language, and uses the Kubernetes client-go to interact with the Kubernetes apiserver.</p>
+
+<p>Kubeless CLI is written in Go as well, using the popular cli library <code>github.com/spf13/cobra</code>. Basically it is a bundle of HTTP requests and kubectl commands. We send http requests to the Kubernetes apiserver in order to &#39;crud&#39; CRD objects. Checkout <a href="https://github.com/kubeless/kubeless/tree/master/cmd/kubeless">the cmd folder</a> for more details.</p>
+
+<h2 id="directory-structure">Directory structure</h2>
+
+<p>In order to help you getting a better feeling before you start diving into the project, we would give you the 10,000 foot view of the source code directory structure.</p>
+
+<ul>
+<li>chart: chart to deploy Kubeless with Helm</li>
+<li>cmd: contains kubeless cli implementation and kubeless-controller.</li>
+<li>docker: contains artifacts for building the kubeless-controller and runtime images.</li>
+<li>docs: contains documentations.</li>
+<li>examples: contains some samples of running function with kubeless.</li>
+<li>manifests: collection of manifests for additional features</li>
+<li>pkg: contains shared packages.</li>
+<li>script: contains build scripts.</li>
+<li>vendor: contains dependencies packages.</li>
+</ul>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

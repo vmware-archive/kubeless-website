@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="expose-and-secure-kubeless-functions">Expose and secure Kubeless functions</h1>
+
+<p>Kubeless leverages <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Kubernetes ingress</a> to provide routing for functions. By default, a deployed function will be matched to a Kubernetes service using ClusterIP as the service. That means that the function is not exposed publicly. Because of that, we provide the <code>kubeless trigger http</code> command that can make a function publicly available. This guide provides a quick sample on how to do it.</p>
+
+<h2 id="ingress-controller">Ingress controller</h2>
+
+<p>In order to create routes for functions in Kubeless, you must have an Ingress controller running. There are several options to deploy it. In this document we point to several different solutions that you can choose:</p>
+
+<blockquote>
+<p>Note: In case Kubeless is running in a GKE cluster you will need to disable the default Ingress controller provided by GKE. The native controller doesn&#39;t work with services that have a type different  than NodePort (see <a href="https://github.com/kubernetes/ingress-nginx/issues/1417">this issue</a>). In order to expose a Kubeless function, disable the default controller and deploy one of the options described below.</p>
+</blockquote>
+
+<h3 id="minikube-ingress-addon">Minikube Ingress addon</h3>
+
+<p>If your cluster is running in Minikube you can enable the Ingress controller just executing:</p>
+
+<pre><code class="console">minikube addons enable ingress
+</code></pre>
+
+<p>After a couple of minutes you should be able to see the controller running in the <code>kube-system</code> namespace:</p>
+
+<pre><code class="console">$ kubectl get pod -n kube-system -l app=nginx-ingress-controller
+NAME                             READY     STATUS    RESTARTS   AGE
+nginx-ingress-controller-pj2pz   1/1       Running   0          25s
+</code></pre>
+
+<h3 id="nginx-ingress">Nginx Ingress</h3>
+
+<p>You can deploy a Nginx Ingress controller manually (it is the same controller than in the Minikube addon) following the instructions that can be found <a href="https://github.com/kubernetes/ingress-nginx/blob/master/deploy/README.md">here</a>.</p>
+
+<h3 id="kong-ingress">Kong Ingress</h3>
+
+<p><a href="https://getkong.org">Kong</a> have an Ingress controller that can be used to expose functions and secure them. You can check the deployment instructions in <a href="https://github.com/Kong/kubernetes-ingress-controller/blob/master/deploy/README.md">their repository</a>. Once Kong is deployed you should be able to see the controller in the <code>kong</code> namespace:</p>
+
+<pre><code class="console">kubectl get pods -n kong
+NAME                                       READY     STATUS    RESTARTS   AGE
+kong-56c4cc55c9-78srh                      1/1       Running   0          1h
+kong-ingress-controller-79f48dd4d7-ql4vw   2/2       Running   0          1h
+postgres-0                                 1/1       Running   1          22h
+</code></pre>
+
+<h3 id="traefik-ingress">Traefik Ingress</h3>
+
+<p><a href="http://traefik.io">Traefik</a> provides an Ingress controller as well. To deploy it follow the steps described at <a href="https://docs.traefik.io/user-guide/kubernetes/">this guide</a>. As a result, you will be able to see the traefik controller running in the <code>kube-system</code> namespace:</p>
+
+<pre><code class="console">kubectl get pod -n kube-system -l name=traefik-ingress-lb
+NAME                                          READY     STATUS    RESTARTS   AGE
+traefik-ingress-controller-57b4767f99-g42n2   1/1       Running   0          1m
+</code></pre>
+
+<h2 id="deploy-function-with-kubeless-cli">Deploy function with Kubeless CLI</h2>
+
+<p>Once you have a Ingress Controller running you should be able to start deploying functions and expose them publicly. First deploy a function:</p>
+
+<pre><code class="console">$ cd examples
+$ kubeless function deploy get-python \
+                    --runtime python2.7 \
+                    --handler helloget.foo \
+                    --from-file python/helloget.py
+
+$ kubectl get po
+NAME                          READY     STATUS    RESTARTS   AGE
+get-python-1796153810-krrf3   1/1       Running   0          2s
+
+$ kubectl get svc
+NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+get-python   10.0.0.26    &lt;none&gt;        8080/TCP   44s
+</code></pre>
+
+<h2 id="expose-a-function">Expose a function</h2>
+
+<p>In order to expose a function, it is necessary to create a HTTP Trigger object. The Kubeless CLI provides the commands required to do so:</p>
+
+<pre><code class="console">$ kubeless trigger http create --help
+Create a http trigger
+
+Usage:
+  kubeless trigger http create &lt;http_trigger_name&gt; FLAG [flags]
+
+Flags:
+      --basic-auth-secret string   Specify an existing secret name for basic authentication
+      --cors-enable                If true then cors will be enabled on Http Trigger
+      --enableTLSAcme              If true, routing rule will be configured for use with kube-lego
+      --function-name string       Name of the function to be associated with trigger
+      --gateway string             Specify a valid gateway for the Ingress. Supported: nginx, traefik, kong (default &quot;nginx&quot;)
+  -h, --help                       help for create
+      --hostname string            Specify a valid hostname for the function
+      --namespace string           Specify namespace for the HTTP trigger
+      --path string                Ingress path for the function
+      --tls-secret string          Specify an existing secret that contains a TLS private key and certificate to secure ingress
+</code></pre>
+
+<p>We will create a http trigger to <code>get-python</code> function:</p>
+
+<pre><code class="console">$ kubeless trigger http create get-python --function-name get-python
+</code></pre>
+
+<p>This command will create an ingress object. We can see it with kubectl (this guide is run on minikube):</p>
+
+<pre><code class="console">$ kubectl get ing
+NAME           HOSTS                              ADDRESS          PORTS     AGE
+get-python    get-python.192.168.99.100.nip.io    192.168.99.100   80        59s
+</code></pre>
+
+<p>Kubeless creates a default hostname in form of <function-name>.<master-address>.nip.io. Alternatively, you can provide a real hostname with <code>--hostname</code> flag or use a different <code>--path</code> like this:</p>
+
+<pre><code class="console">$ kubeless trigger http create get-python --function-name get-python --path echo --hostname example.com
+$ kubectl get ing
+NAME          HOSTS                              ADDRESS          PORTS     AGE
+get-python    example.com                                          80        6s
+</code></pre>
+
+<p>But you have to make sure your hostname is configured properly.</p>
+
+<p>You can test the created HTTP trigger with the following command:</p>
+
+<pre><code class="console">$ curl --data &#39;{&quot;Another&quot;: &quot;Echo&quot;}&#39; \
+  --header &quot;Host: get-python.192.168.99.100.nip.io&quot; \
+  --header &quot;Content-Type:application/json&quot; \
+  192.168.99.100/echo
+{&quot;Another&quot;: &quot;Echo&quot;}
+</code></pre>
+
+<h2 id="enable-tls">Enable TLS</h2>
+
+<p>Once you have one of the supported Ingress Controller it is possible to enable TLS using a certificate:</p>
+
+<ul>
+<li>Automatically generated using Let&#39;s Encrypt and <a href="https://github.com/jetstack/cert-manager">cert-manager</a></li>
+<li>Self signed</li>
+<li>Provided by a certificate issuer</li>
+</ul>
+
+<h3 id="using-let-s-encrypt-s-ca">Using Let’s Encrypt’s CA</h3>
+
+<p>When you have running Kube-lego, you can deploy function and create an HTTP trigger with flag <code>--enableTLSAcme</code> enabled as below:</p>
+
+<pre><code class="console">$ kubeless trigger http create get-python --function-name get-python --path get-python --enableTLSAcme
+</code></pre>
+
+<p>Running the above command, Kubeless will automatically create a ingress object with annotation <code>kubernetes.io/tls-acme: &#39;true&#39;</code> set which will be used by Kube-lego to configure the service certificate.</p>
+
+<h3 id="create-a-self-signed-certificate">Create a self-signed certificate</h3>
+
+<p>If you don&#39;t have a working certificate it is possible to generate a dummy one to be able to use TLS with your functions. To generate the certificate and its secret execute the following:</p>
+
+<pre><code class="console">$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj &quot;/CN=foo.bar.com&quot;
+Generating a 2048 bit RSA private key
+..........................................................................+++
+.......................................................+++
+writing new private key to &#39;tls.key&#39;
+-----
+$ kubectl create secret tls tls-secret --key tls.key --cert tls.crt
+secret &quot;tls-secret&quot; created
+</code></pre>
+
+<h3 id="use-an-existing-certificate">Use an existing certificate</h3>
+
+<p>Now that you have a certificate, you can use it to setup TLS for the HTTP trigger, there by securing functions:</p>
+
+<pre><code class="console">$ kubeless trigger http create get-python --function-name get-python --hostname foo.bar.com --tls-secret secret-name
+</code></pre>
+
+<p>Once the Ingress rule has been deployed you can verify that the function is accessible trough HTTPS:</p>
+
+<pre><code class="console">$ kubectl get ingress
+NAME             HOSTS            ADDRESS          PORTS     AGE
+get-python       foo.bar.com      192.168.99.100   80, 443   4m
+$ curl -k https://192.168.99.100 --header &#39;Host: foo.bar.com&#39;
+hello world
+</code></pre>
+
+<h2 id="enable-basic-authentication">Enable Basic Authentication</h2>
+
+<p>Once you have one of the supported Ingress Controller it is possible to enable Basic Authentication either:</p>
+
+<ul>
+<li>Creating a secret with the content of the user to authenticate. This is valid for the Nginx and Traefik controllers.</li>
+<li>Adding the Kong plugin for basic authentication.</li>
+</ul>
+
+<h3 id="enable-basic-authentication-with-nginx-or-traefik">Enable Basic Authentication with Nginx or Traefik</h3>
+
+<p>For enabling authentication for a function, the first thing is creating a secret with the user and password:</p>
+
+<pre><code class="console">$ htpasswd -cb auth foo bar
+Adding password for user foo
+$ kubectl create secret generic basic-auth --from-file=auth
+secret &quot;basic-auth&quot; created
+</code></pre>
+
+<p>Now you just need to create a HTTP trigger using that secret.</p>
+
+<pre><code class="console">$ kubeless trigger http create get-python --function-name get-python --basic-auth-secret basic-auth --gateway nginx
+INFO[0000] HTTP trigger get-python created in namespace default successfully!
+</code></pre>
+
+<blockquote>
+<p>Note: The command is the same for the case of Traefik, just use <code>--gateway traefik</code> instead</p>
+</blockquote>
+
+<p>Once the Ingress rule has been deployed you can verify that the function is accessible just for the proper user and password:</p>
+
+<pre><code class="console">$ kubectl get ingress
+NAME         HOSTS                              ADDRESS          PORTS     AGE
+get-python   get-python.192.168.99.100.nip.io   192.168.99.100   80        1m
+$ curl --header &#39;Host: get-python.192.168.99.100.nip.io&#39; 192.168.99.100
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;401 Authorization Required&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor=&quot;white&quot;&gt;
+&lt;center&gt;&lt;h1&gt;401 Authorization Required&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.13.7&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+$ curl -u foo:bar --header &#39;Host: get-python.192.168.99.100.nip.io&#39; 192.168.99.100
+hello world
+</code></pre>
+
+<h3 id="enable-basic-authentication-with-kong">Enable Basic Authentication with Kong</h3>
+
+<p>It is not yet supported to create an HTTP trigger with basic authentication using Kong as backend but the steps to do it manually are pretty simple. It is possible to do so using Kong plugins. In the <a href="#enable-kong-security-plugins">next section</a> we explain how to enable any of the available Kong plugins and in particular we explain how to enable the basic-auth plugin.</p>
+
+<h2 id="enable-cors">Enable CORS</h2>
+
+<p>It&#39;s possible to enable CORS requests at the HTTPTrigger level. To do so use the --cors-enable flag when deploying<br>
+the HTTPTrigger or add the field cors-enable: true to the YAML manifest.</p>
+
+<h2 id="add-arbitrary-annotations">Add arbitrary annotations</h2>
+
+<p>It is also possible to add any annotation to the resulting Ingress object if you add those to the HTTPTrigger. For example:</p>
+
+<pre><code>apiVersion: kubeless.io/v1beta1
+kind: HTTPTrigger
+metadata:
+ name: cors-trigger
+ annotations:
+  nginx.ingress.kubernetes.io/enable-cors: &quot;true&quot;
+  nginx.ingress.kubernetes.io/cors-allow-methods: &quot;GET&quot;
+spec:
+ function-name: get-python
+ host-name: example.com
+ path: echo
+</code></pre>
+
+<p>The above will create an Ingress object with the annotations nginx.ingress.kubernetes.io/enable-cors: &quot;true&quot;<br>
+and nginx.ingress.kubernetes.io/cors-allow-methods: &quot;GET&quot;.</p>
+
+<h2 id="enable-kong-security-plugins">Enable Kong Security plugins</h2>
+
+<p>Kong has available several free <a href="https://konghq.com/plugins/">plugins</a> that can be used along with the Kong Ingress controller for securing the access to Kubeless functions. In particular, the list of security plugins that can be used is:</p>
+
+<ul>
+<li>Basic Authentication</li>
+<li>Key Authentication</li>
+<li>OAuth 2.0</li>
+<li>JWT</li>
+<li>ACL</li>
+<li>HMAC Authentication</li>
+<li>LDAP Authentication</li>
+</ul>
+
+<p>Once you have Kong and its Ingress controller running in your cluster the generic steps to use any plugin are:</p>
+
+<ul>
+<li>Deploy a basic HTTP trigger for the target function using <code>--gateway kong</code>.</li>
+<li>Create a Kubernetes object for the plugin you want to use.</li>
+<li>Add a Kong Consumer.</li>
+<li>Create the specific credentials or follow any additional steps that the plugin may require.</li>
+<li>Associate the credentials/plugin with the Ingress object created in the first step.</li>
+</ul>
+
+<p>The specific steps that are required to use a plugin can be found in the <a href="https://konghq.com/plugins/">plugins</a> page. As an example we will configure the plugin <a href="https://getkong.org/plugins/basic-authentication/">basic-auth</a> for our function <code>get-python</code>.</p>
+
+<h3 id="deploy-a-basic-http-trigger">Deploy a basic HTTP trigger</h3>
+
+<p>First we need to create a HTTP trigger to generate the Ingress object that will expose our function.</p>
+
+<pre><code class="console">$ kubeless trigger http create get-python --function-name get-python --gateway kong --hostname foo.bar.com
+INFO[0000] HTTP trigger get-python created in namespace default successfully!
+</code></pre>
+
+<h3 id="add-the-basic-auth-plugin">Add the basic-auth plugin</h3>
+
+<p>The next step is creating the Custom Resource related to the Kong basic authentication plugin. You can see the possible configuration options available in the <a href="https://getkong.org/plugins/basic-authentication">plugin documentation</a>.</p>
+
+<pre><code class="console">$ echo &quot;
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: basic-auth
+consumerRef: basic-auth
+config:
+  hide_credentials: false
+&quot; | kubectl create -f -
+kongplugin &quot;basic-auth&quot; created
+</code></pre>
+
+<h4 id="create-a-consumer">Create a Consumer</h4>
+
+<p>Now we need a <a href="https://getkong.org/docs/0.13.x/getting-started/adding-consumers/#adding-consumers"><code>Consumer</code></a> for the plugin.</p>
+
+<pre><code class="console">$ echo &quot;
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: basic-auth
+username: user
+&quot; | kubectl create -f -
+kongconsumer &quot;basic-auth&quot; created
+</code></pre>
+
+<h4 id="create-user-credentials">Create user credentials</h4>
+
+<p>Now that we have a consumer we need to create the basic authentication credentials that the function is going to use:</p>
+
+<pre><code class="console">$ echo &quot;
+apiVersion: configuration.konghq.com/v1
+kind: KongCredential
+metadata:
+  name: basic-auth
+consumerRef: basic-auth
+type: basic-auth
+config:
+  username: user
+  password: pass
+&quot; | kubectl create -f -
+kongcredential &quot;basic-auth&quot; created
+</code></pre>
+
+<h4 id="associate-the-credentials-with-the-ingress-object">Associate the credentials with the Ingress object</h4>
+
+<p>The final step is to enable the credentials and the plugin for the function. For doing so we just need to add an <code>Annotation</code> in the Ingress object that we generated in the first step:</p>
+
+<pre><code class="console">$ kubectl patch ingress get-python \
+ -p &#39;{&quot;metadata&quot;:{&quot;annotations&quot;:{&quot;basic-auth.plugin.konghq.com&quot;:&quot;basic-auth&quot;}}}&#39;
+ingress &quot;get-python&quot; patched
+</code></pre>
+
+<p>Now that the plugin has been enabled we can verify that it is working:</p>
+
+<pre><code class="console">$ export PROXY_IP=$(minikube   service -n kong kong-proxy --url --format &quot;{{ .IP }}&quot; | head -1)
+$ export HTTP_PORT=$(minikube  service -n kong kong-proxy --url --format &quot;{{ .Port }}&quot; | head -1)
+$ curl --header &quot;Host: foo.bar.com&quot; ${PROXY_IP}:${HTTP_PORT}
+{&quot;message&quot;:&quot;Unauthorized&quot;}
+$ curl -u user:pass --header &quot;Host: foo.bar.com&quot; ${PROXY_IP}:${HTTP_PORT}
+hello world
+</code></pre>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

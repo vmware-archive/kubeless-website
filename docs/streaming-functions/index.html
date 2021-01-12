@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="data-stream-events">Data Stream events</h1>
+
+<p>Kubeless lets you trigger any Kubeless function in response to ingested records into a data stream. Kubeless currently supports AWS Kinesis streaming service.</p>
+
+<h2 id="aws-kinesis">AWS Kinesis</h2>
+
+<p>To trigger Kubeless functions in response to ingested records into the AWS kinesis stream you need to deploy Kubeless AWS Kinesis trigger controller. Please use this manifest to deploy Kubeless AWS Kinesis trigger controller.</p>
+
+<pre><code class="console">kubectl create -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kinesis-$RELEASE.yaml
+</code></pre>
+
+<p>Once you deploy the manifest you shall see Kinesis trigger controller running in the Kubeless namespace as below.</p>
+
+<pre><code class="console">$ kubectl get pods -n kubeless
+NAME                                           READY     STATUS    RESTARTS   AGE
+kinesis-trigger-controller-65c78f9f44-v5flq    1/1       Running   0          1h
+kubeless-controller-manager-6b7cdcdc76-x6gsd   1/1       Running   0          13h
+</code></pre>
+
+<p>You shall also notice a CRD resource type <code>kinesistriggers.kubeless.io</code> created as below.</p>
+
+<pre><code class="console">$ kubectl get crd
+NAME                          AGE
+cronjobtriggers.kubeless.io   13h
+functions.kubeless.io         13h
+httptriggers.kubeless.io      13h
+kinesistriggers.kubeless.io   13h
+</code></pre>
+
+<p>Kubeless cli lets you create Kubeless triggers of Kinesis type. Kubeless cli provides necessary functionality to manage the life cycle of Kinesis triggers.</p>
+
+<pre><code class="console">$ kubeless trigger kinesis --help
+kinesis trigger command allows users to create, list, update, delete Kinesis triggers running on Kubeless
+
+Usage:
+  kubeless trigger kinesis SUBCOMMAND [flags]
+  kubeless trigger kinesis [command]
+
+Available Commands:
+  create        Create a Kinesis trigger
+  create-stream Create a Kinesis stream
+  delete        Delete a Kinesis trigger
+  list          list all Kinesis triggers deployed to Kubeless
+  publish       publish message to a Kinesis stream
+  update        Update a Kinesis trigger
+
+Flags:
+  -h, --help   help for kinesis
+
+Use &quot;kubeless trigger kinesis [command] --help&quot; for more information about a command.
+</code></pre>
+
+<p>In order to deploy a Kinesis trigger and associate a Kubeless function to be invoked in response to ingested records in Kinesis data stream, you need to first let Kubeless know the credentials required to acess your AWS Kinesis stream. Kubeless will leverage Kubernetes secrets to store the credentials in the cluster and use them to access the Kinesis stream.</p>
+
+<p>First you need to creat Kubernetes secret that can store you AWS <code>aws_access_key_id</code> and <code>aws_secret_access_key</code>. Usually if you are using AWS cli your keys will be present in <code>~/.aws/credentials</code> or you can create AWS access keys from AWS console.</p>
+
+<pre><code class="console">kubectl create secret generic ec2 --from-literal=aws_access_key_id=$AWS_ACCESS_KEY_ID --from-literal=aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
+</code></pre>
+
+<p>Once you have created a secret you are ready to deploy Kubeless Kinesis trigger as below.</p>
+
+<pre><code class="console">kubeless trigger kinesis create test-trigger --function-name post-python --aws-region us-west-2 --shard-id shardId-000000000000 --stream my-kinesis-stream --secret ec2
+</code></pre>
+
+<p>Lets look into the flags expected. <code>--aws-region</code> is the AWS region in which your Kinesis stream is avilable. <code>--shard-id</code> is the id of shard into which records are placed. You should be able to get the <code>shard-id</code> from the stream description. <code>--stream</code> is the name of the Kinesis stream.</p>
+
+<pre><code class="console">$ aws kinesis describe-stream --stream-name my-kinesis-stream
+{
+    &quot;StreamDescription&quot;: {
+        &quot;RetentionPeriodHours&quot;: 24,
+        &quot;StreamName&quot;: &quot;my-kinesis-stream&quot;,
+        &quot;Shards&quot;: [
+            {
+                &quot;ShardId&quot;: &quot;shardId-000000000000&quot;,
+                &quot;HashKeyRange&quot;: {
+                    &quot;EndingHashKey&quot;: &quot;340282366920938463463374607431768211455&quot;,
+                    &quot;StartingHashKey&quot;: &quot;0&quot;
+                },
+                &quot;SequenceNumberRange&quot;: {
+                    &quot;StartingSequenceNumber&quot;: &quot;49584495912138607235774073050889122383423872293029281794&quot;
+                }
+            }
+        ],
+        &quot;StreamARN&quot;: &quot;arn:aws:kinesis:us-west-2:159706291352:stream/my-kinesis-stream&quot;,
+        &quot;EnhancedMonitoring&quot;: [
+            {
+                &quot;ShardLevelMetrics&quot;: []
+            }
+        ],
+        &quot;StreamStatus&quot;: &quot;ACTIVE&quot;
+    }
+}
+</code></pre>
+
+<p>Once you deploy the Kinesis trigger you shall see a <code>kinesistrigger</code> CRD object as below.</p>
+
+<pre><code class="console">$ kubectl get kinesistriggers.kubeless.io test -o yaml
+apiVersion: kubeless.io/v1beta1
+kind: KinesisTrigger
+metadata:
+  labels:
+    created-by: kubeless
+  name: test
+  namespace: default
+spec:
+  aws-region: us-west-2
+  function-name: post-python
+  secret: ec2
+  shard: shardId-000000000000
+  stream: my-kinesis-stream
+</code></pre>
+
+<p>At this point you shall be able to publish a record in to the stream either through Kubeless CLI or using AWS cli as below.</p>
+
+<pre><code class="console">kubeless trigger kinesis publish --aws-region us-west-2  --secret ec2 --partition-key &quot;123&quot; --stream my-kinesis-stream  --message &quot;hello world&quot;
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="console">aws kinesis put-record --stream-name my-kinesis-stream --partition-key 123 --data testdata1
+aws kinesis put-record --stream-name my-kinesis-stream --partition-key 123 --data testdata2
+aws kinesis put-record --stream-name my-kinesis-stream --partition-key 123 --data testdata3
+</code></pre>
+
+<p>You shall see the log of received messages in the function pod associated with the Kinesis trigger.</p>
+
+<pre><code class="console">$ kubectl logs post-python-59f7fc4b54-4nhbb
+Bottle v0.12.13 server starting up (using CherryPyServer())...
+Listening on http://0.0.0.0:8080/
+Hit Ctrl-C to quit.
+
+{&#39;event-time&#39;: &#39;2018-05-18 05:40:42.881137473 +0000 UTC&#39;, &#39;extensions&#39;: {&#39;request&#39;: &lt;LocalRequest: POST http://post-python.default.svc.cluster.local:8080/&gt;}, &#39;event-type&#39;: &#39;application/x-www-form-urlencoded&#39;, &#39;event-namespace&#39;: &#39;kinesistriggers.kubeless.io&#39;, &#39;data&#39;: &#39;testdata12&#39;, &#39;event-id&#39;: &#39;bDRMSN3NPC81ktU&#39;}
+172.17.0.7 - - [18/May/2018:05:40:42 +0000] &quot;POST / HTTP/1.1&quot; 200 10 &quot;&quot; &quot;Go-http-client/1.1&quot; 0/11758
+{&#39;event-time&#39;: &#39;2018-05-18 05:40:44.891994208 +0000 UTC&#39;, &#39;extensions&#39;: {&#39;request&#39;: &lt;LocalRequest: POST http://post-python.default.svc.cluster.local:8080/&gt;}, &#39;event-type&#39;: &#39;application/x-www-form-urlencoded&#39;, &#39;event-namespace&#39;: &#39;kinesistriggers.kubeless.io&#39;, &#39;data&#39;: &#39;testdata22&#39;, &#39;event-id&#39;: &#39;uHdiWN-lzeKYQyQ&#39;}
+172.17.0.7 - - [18/May/2018:05:40:44 +0000] &quot;POST / HTTP/1.1&quot; 200 10 &quot;&quot; &quot;Go-http-client/1.1&quot; 0/8983
+{&#39;event-time&#39;: &#39;2018-05-18 05:40:45.878361324 +0000 UTC&#39;, &#39;extensions&#39;: {&#39;request&#39;: &lt;LocalRequest: POST http://post-python.default.svc.cluster.local:8080/&gt;}, &#39;event-type&#39;: &#39;application/x-www-form-urlencoded&#39;, &#39;event-namespace&#39;: &#39;kinesistriggers.kubeless.io&#39;, &#39;data&#39;: &#39;testdata32&#39;, &#39;event-id&#39;: &#39;sRRjSasGVApy8tA&#39;}
+</code></pre>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

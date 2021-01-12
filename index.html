@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<main>
+<div class='Index'>
+<div class='Index__Hero'>
+<div class='Index__Hero__Content gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+<div class='text-c margin-b-reset padding-b-huge padding-t-big'>
+<h1 class='type-color-light type-giant margin-b-reset'>
+<img src="/assets/images/logo-white.svg" class="Index__Hero__Logo" alt="Logo white" />
+</h1>
+<h3 class='type-color-light margin-reset'>
+The Kubernetes Native Serverless Framework
+</h3>
+<h4 class='type-color-light margin-t-reset'>
+Build advanced applications with FaaS on top of Kubernetes
+</h4>
+<div class='text-c margin-t-bigger'>
+<a class='margin-h-normal margin-b-normal button button-action' href='https://github.com/kubeless/kubeless/blob/master/README.md' rel='noopener' target='_blank'>
+Get started
+</a>
+<a class='margin-h-normal margin-b-normal button' href='http://kubeless.io/docs/quick-start/' rel='noopener' target='_blank'>
+Installation
+</a>
+<a class='margin-h-normal margin-b-normal button' href='https://github.com/kubeless/kubeless' rel='noopener' target='_blank'>
+GitHub
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class='Index__Hero__Bar gradient-brand Index__Hero__Bar--pattern'></div>
+<div class='Index__Hero__Bar gradient-225-brand'></div>
+</div>
+<div class='container container-small margin-t-enormous'>
+<h1>
+What is Kubeless?
+</h1>
+<div class='row collapse-b-tablet'>
+<div class='col-12'>
+<p>
+Kubeless is a Kubernetes-native serverless framework that lets you deploy small bits of
+code (functions) without having to worry about the underlying infrastructure. It is
+designed to be deployed on top of a Kubernetes cluster and take advantage of all the
+great Kubernetes primitives. If you are looking for an open source serverless solution
+that clones what you can find on AWS Lambda, Azure Functions, and Google Cloud Functions,
+Kubeless is for you!
+</p>
+<p>
+Kubeless Includes:
+</p>
+<ul>
+<li>
+Support for Python, Node.js, Ruby, PHP, Golang, .NET, Ballerina and custom runtimes
+</li>
+<li>
+CLI compliant with AWS Lambda CLI
+</li>
+<li>
+Event triggers using Kafka messaging system and HTTP events
+</li>
+<li>
+Prometheus monitoring of functions calls and function latency by default
+</li>
+<li>
+<a href="https://serverless.com" rel="noopener" target="_blank">Serverless</a>
+Framework
+<a href="https://github.com/serverless/serverless-kubeless" rel="noopener" target="_blank">plugin</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<section class='gradient-45-accent padding-v-enormous margin-t-giant elevation-1'>
+<div class='container'>
+<div class='row align-center collapse-b-tablet'>
+<div class='col-5'>
+<h3 class='type-color-iron'>How does it work? Check it out!</h3>
+<p class='type-color-iron'>
+Kubeless uses a
+<a href="https://kubernetes.io/docs/tasks/access-kubernetes-api/extend-api-custom-resource-definitions/" rel="noopener" target="_blank" class="type-color-action">Custom Resource Definition</a>
+to be able to create functions as custom
+kubernetes resources. It then runs an in-cluster controller that watches these custom
+resources and launches runtimes on-demand. The controller dynamically injects the
+functions code into the runtimes and make them available over HTTP or via a PubSub
+mechanism.
+</p>
+</div>
+<div class='col-1'></div>
+<div class='col-6'>
+<iframe allowfullscreen class='elevation-3' frameborder='0' height='315' src='https://www.youtube-nocookie.com/embed/AxZuQIJUX4s?rel=0&amp;amp;showinfo=0' width='100%'></iframe>
+</div>
+</div>
+</div>
+</section>
+<div class='container container-small margin-v-giant'>
+<h1>Ready to Get Started?</h1>
+<p>
+Kubeless is an open-source project. We encourage you to check out the latest version and
+give it a try.  If you like it, please share your thoughts (#kubeless).  If you have
+suggestions or contributions to the code or documentation,
+<strong>we encourage and welcome your participation.</strong>
+</p>
+<p class='margin-t-bigger text-c margin-reset'>
+<a class='margin-h-normal' href='https://github.com/kubeless/kubeless/releases' rel='noopener' target='_blank'>
+Download
+</a>
+<span class='type-color-iron'>/</span>
+<a class='margin-h-normal' href='/docs/quick-start#installation'>
+Installation
+</a>
+<span class='type-color-iron'>/</span>
+<a class='margin-h-normal' href='/docs/dev-guide'>
+Developer's guide
+</a>
+<span class='type-color-iron'>/</span>
+<a class='margin-h-normal' href='https://github.com/kubeless/kubeless/blob/master/CONTRIBUTING.md' rel='noopener' target='_blank'>
+Contribute
+</a>
+<span class='type-color-iron'>/</span>
+<a class='margin-h-normal' href='/docs'>
+Documentation
+</a>
+</p>
+</div>
+</div>
+
+</main>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

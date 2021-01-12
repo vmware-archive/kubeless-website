@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="introduction">Introduction</h1>
+
+<p>Kubeless leverages <a href="https://travis-ci.org/">travis-ci</a> to construct an automated release flow. A release package includes kubeless binaries for multiple platforms (linux and osx are supported) and one yaml file to deploy kubeless controller.</p>
+
+<h1 id="checks-before-releasing">Checks before releasing</h1>
+
+<p>Before releasing it is necessary to check that the rest of projects of the Kubeless environment do not present regressions for the new changes. Before creating a new release, deploy Kubeless using the latest commit of master (using the tag &quot;latest&quot; for the controller image). Make sure that the latest image build in Travis for the Kubeless controller is being used. After that, ensure that the following projects support the new version:</p>
+
+<ul>
+<li><a href="https://github.com/serverless/serverless-kubeless">Serverless Plugin</a></li>
+<li><a href="https://github.com/kubeless/kubeless-ui">Kubeless UI</a></li>
+</ul>
+
+<p>If any error is found after doing some manual testing, make sure the error is addressed before doing a release.</p>
+
+<h1 id="kubeless-release-flow">Kubeless release flow</h1>
+
+<p>A release is triggered by <a href="https://docs.travis-ci.com/user/deployment/releases/">Travis Github Releases</a> and based on GitHub tagging. Once a commit in the master branch is tagged, a travis job will be started to build and upload assets to Github release page under a new release with the tag name. The setup is described at <code>before_deploy</code> and <code>deploy</code> sections in <code>.travis.yaml</code>.</p>
+
+<p><code>before_deploy</code> defines commands executed before releasing. At this stage, we prepare assets which will be uploaded including kubeless binaries and the yaml file. The yaml file is converted from <a href="https://github.com/kubeless/kubeless/blob/master/kubeless.jsonnet">kubeless.jsonnet</a> file using <a href="https://github.com/ksonnet/kubecfg">kubecfg</a>. The kubeless-controller is built in format of docker image and push to <a href="https://hub.docker.com/r/bitnami/kubeless-controller/">Bitnami repository</a> on DockerHub. Because we use sha256 digest for labeling docker images to be deployed when installing kubeless, we need to update these digests for the new release.</p>
+
+<p><code>deploy</code> defines configuration for a github release. API key is encrypted version of our Github token with scope <code>public_repo</code>. The condition for a release to be triggered is defined at <code>on</code> section:<br>
+- it will be triggered once a commit is tagged<br>
+- the repository is <code>kubeless/kubeless</code><br>
+- only travis job for <code>os: linux</code> and <code>go: 1.8</code> can do the release</p>
+
+<p>Once the release job has finished a <code>Draft</code> with the release notes will appear in the <a href="https://github.com/kubeless/kubeless/releases">releases page</a>. Review the notes and include a summary of the changes included in the release. Delete information that is not useful for the users. Make sure that breaking changes are properly highlighted. After that click on &quot;Publish&quot; for making the new release available for anyone.</p>
+
+<h1 id="update-the-rest-of-projects-to-use-the-new-version">Update the rest of projects to use the new version</h1>
+
+<p><em>Note: These steps are suitable for being automated in the Travis release job</em></p>
+
+<p>Once the new version is available, there are several projects/files that require to be updated in order to point to the latest version:</p>
+
+<ul>
+<li>Kubeless docs site: To point to the latest version in the docs of <a href="http://kubeless.io">http://kubeless.io</a> rebuild the last build on <a href="https://travis-ci.org/kubeless/kubeless-website">https://travis-ci.org/kubeless/kubeless-website</a>.</li>
+<li>Kubeless chart: Update the references for the different images or any other required change in the <code>chart</code> folder of this repository.</li>
+<li>Serverless plugin: Update the <code>KUBELESS_VERSION</code> environment variable in the <code>.travis</code> file to point to the latest version.</li>
+<li>[Optional] Brew recipes: An automated PR will be generated in the <code>homebrew-core</code> repository with the new version and commit ID. Unless the recipe should contain breaking changes the update will be handled by the homebrew team. If it is not the case the <a href="https://github.com/Homebrew/homebrew-core/blob/master/Formula/kubeless.rb">recipe</a> manually.</li>
+</ul>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

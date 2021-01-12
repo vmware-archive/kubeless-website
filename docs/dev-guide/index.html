@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="kubeless-developer-guide">Kubeless developer guide</h1>
+
+<p>This will cover the steps need to be done in order to build your local development environment for Kubeless.</p>
+
+<h2 id="setting-things-up">Setting things up</h2>
+
+<p>As Kubeless project is mainly developed in the Go Programming Language, the first thing you should do is guarantee that Go is installed and all environment variables are properly set.</p>
+
+<p>In this example we will use Ubuntu Linux 16.04.2 LTS as the target host on where the project will be built.</p>
+
+<h3 id="installing-go">Installing Go</h3>
+
+<ul>
+<li>Visit <a href="https://golang.org/dl/">https://golang.org/dl/</a></li>
+<li>Download the most recent Go version (here we used 1.9) and unpack the file</li>
+<li>Check the installation process on <a href="https://golang.org/doc/install">https://golang.org/doc/install</a></li>
+<li>Set the Go environment variables</li>
+</ul>
+
+<pre><code class="bash">export GOROOT=/GoDir/go
+export GOPATH=/GoDir/go/bin
+export PATH=$GOPATH:$PATH
+</code></pre>
+
+<h3 id="create-a-working-directory-for-the-project">Create a working directory for the project</h3>
+
+<pre><code class="bash">export KUBELESS_WORKING_DIR=$GOROOT/src/github.com/kubeless/
+mkdir -p $KUBELESS_WORKING_DIR
+</code></pre>
+
+<h3 id="fork-the-repository">Fork the repository</h3>
+
+<ol>
+<li>Visit the repo: <a href="https://github.com/kubeless/kubeless">https://github.com/kubeless/kubeless</a></li>
+<li>Click <code>Fork</code> button (top right) to establish a cloud-based fork.</li>
+</ol>
+
+<h3 id="clone-from-your-fork">Clone from your fork</h3>
+
+<pre><code class="bash">cd $KUBELESS_WORKING_DIR
+git clone https://github.com/&lt;YOUR FORK&gt;
+cd $KUBELESS_WORKING_DIR/kubeless
+git remote add upstream https://github.com/kubeless/kubeless.git
+
+# Never push to upstream master
+git remote set-url --push upstream no_push
+# Checking your remote set correctly
+git remote -v
+</code></pre>
+
+<h3 id="bootstrapping-your-local-dev-environment">Bootstrapping your local dev environment</h3>
+
+<p>To get all the needed tools to build and test, run:</p>
+
+<pre><code class="bash">cd $KUBELESS_WORKING_DIR/kubeless
+make bootstrap
+</code></pre>
+
+<p>Or if you want to use a containerized environment you can use <a href="https://github.com/kubernetes/minikube">minikube</a>.<br>
+If you already have minikube use the following script to set it up:</p>
+
+<pre><code class="bash">cd $KUBELESS_WORKING_DIR/kubeless
+./script/start-test-environment.sh
+</code></pre>
+
+<p>This will start a new minikube virtual machine and will open a bash shell in which you can build any local binary or execute the tests. Note that the Kubeless code will be mounted from outside so you can still edit your files with your favourite text editor.</p>
+
+<h3 id="building-local-binaries">Building local binaries</h3>
+
+<p>To make the binaries for your platform, run:</p>
+
+<pre><code class="bash">cd $KUBELESS_WORKING_DIR/kubeless
+make binary
+make function-controller
+</code></pre>
+
+<p>This will instruct &quot;make&quot; to run the scripts to build the kubeless client and the kubeless controller image.</p>
+
+<p>You can build kubeless for multiple platforms with:</p>
+
+<pre><code class="bash">make binary-cross
+</code></pre>
+
+<p>The binaries accordingly located at <code>bundles/kubeless_$OS_$arch</code> folder.</p>
+
+<h3 id="building-trigger-controllers">Building Trigger Controllers</h3>
+
+<p>Each Kubeless trigger controller is being developed on its own repository. You can find more information about those controllers in their repositories:</p>
+
+<ul>
+<li><a href="https://github.com/kubeless/http-trigger">HTTP Trigger</a></li>
+<li><a href="https://github.com/kubeless/cronjob-trigger">CronJob Trigger</a></li>
+<li><a href="https://github.com/kubeless/kafka-trigger">Kafka Trigger</a></li>
+<li><a href="https://github.com/kubeless/nats-trigger">NATS Trigger</a></li>
+</ul>
+
+<h3 id="building-k8s-manifests-file">Building k8s manifests file</h3>
+
+<p>To regenerate the most updated k8s manifests file, run:</p>
+
+<blockquote>
+<p>Note that you will need the <a href="https://github.com/ksonnet/kubecfg/releases/"><code>kubecfg</code></a> in your <code>PATH</code> in order to generate the Kubeless manifests.</p>
+</blockquote>
+
+<pre><code class="bash">cd $KUBELESS_WORKING_DIR
+export KUBECFG_JPATH=$PWD/ksonnet-lib
+git clone --depth=1 https://github.com/ksonnet/ksonnet-lib.git
+cd $KUBELESS_WORKING_DIR/kubeless
+make all-yaml
+</code></pre>
+
+<p>If everything is ok, you&#39;ll have generated manifests file under the <code>$KUBELESS_WORKING_DIR</code> root directory:</p>
+
+<pre><code>kubeless-openshift.yaml
+kubeless-non-rbac.yaml
+kubeless.yaml
+</code></pre>
+
+<p>You can also generate them separated using the following commands:</p>
+
+<pre><code class="bash">make kubeless-openshift.yaml
+make kubeless-non-rbac.yaml
+make kubeless.yaml
+</code></pre>
+
+<h3 id="uploading-your-kubeless-image-to-docker-hub">Uploading your kubeless image to Docker Hub</h3>
+
+<p>Usually you will need to upload your controller image to a repository so you can make it available for your Kubernetes cluster, whenever it is running.</p>
+
+<p>To do so, run the commands:</p>
+
+<pre><code class="bash">docker login -u=&lt;dockerhubuser&gt; -e=&lt;e-mail&gt;
+docker tag kubeless-controller-manager &lt;your-docker-hub-repo&gt;/kubeless-test:latest
+docker push &lt;your-docker-hub-repo&gt;/kubeless-test:latest
+</code></pre>
+
+<p>Make sure your image repository is correctly referenced in the &quot;containers&quot; session on the yaml file.</p>
+
+<pre><code class="yaml">      containers:
+      - image: fabriciosanchez/kubeless-test:latest
+        imagePullPolicy: Always
+        name: kubeless-controller
+      serviceAccountName: controller-acct
+</code></pre>
+
+<p><strong>Hint:</strong> take a look at the <code>imagePullPolicy</code> configuration if you are sending images with tags (e. g. &quot;latest&quot;) to the Kubernetes cluster. This option controls the image caching mechanism for Kubernetes and you may encounter problems if new images enters the cluster with the same name. They might not be properly pulled for example.</p>
+
+<p>In order to upload your kubeless controller image to Kubernetes, you should use kubectl as follows, informing the yaml file with the required descriptions of your deployment.</p>
+
+<pre><code class="bash">kubectl create ns kubeless
+kubectl create -f &lt;path-to-yaml-file&gt;/kubeless.yaml
+</code></pre>
+
+<h3 id="working-on-your-local-branch">Working on your local branch</h3>
+
+<p>Branch from it:</p>
+
+<pre><code class="bash">git checkout -b myfeature
+</code></pre>
+
+<p>Then start working on your <code>myfeature</code> branch.</p>
+
+<h4 id="keep-your-branch-in-sync">Keep your branch in sync</h4>
+
+<pre><code class="bash"># While on your myfeature branch
+git fetch upstream
+git rebase upstream/master
+</code></pre>
+
+<h4 id="commit-your-changes">Commit your changes</h4>
+
+<pre><code class="bash">git commit
+</code></pre>
+
+<p>Likely you go back and edit/build/test some more then <code>commit --amend</code> in a few cycles.</p>
+
+<h4 id="push-to-your-origin-first">Push to your origin first</h4>
+
+<pre><code class="bash">git push origin myfeature
+</code></pre>
+
+<h3 id="updating-generated-files">Updating generated files</h3>
+
+<p>There are several files that are automatically generated by Kubernetes <a href="https://github.com/kubernetes/code-generator">code-generator</a> based on the API <a href="https://github.com/kubeless/kubeless/tree/master/pkg/apis/kubeless">specification</a> in the repository.</p>
+
+<p>These include:</p>
+
+<ul>
+<li>Clientset</li>
+<li>Listers</li>
+<li>Shared informers</li>
+<li>Deepcopy functions</li>
+</ul>
+
+<p>If you make any changes to API specification, you will need to run <code>make update</code> to regenerate clientset, informers, lister and deepcopy functions.</p>
+
+<h3 id="testing-kubeless-with-local-minikube">Testing kubeless with local minikube</h3>
+
+<p>The simplest way to try kubeless is deploying it with <a href="https://github.com/kubernetes/minikube">minikube</a></p>
+
+<p>You can start working with the local minikube VM and test your changes building the controller image and running your tests. Once you are happy with the result and you are ready to send a pull request you should run the unit and end-to-end tests (to spot possible issues with your changes):</p>
+
+<pre><code class="bash">make validation
+make test
+make build_and_test
+</code></pre>
+
+<p>Note that for running the end-to-end tests you need to provide a clean profile of minikube (you can create a specific profile for the tests with <code>minikube profile tests</code>).</p>
+
+<p>Any new feature/bug fix made to the code should be accompanied by a unit or end to end test.</p>
+
+<h3 id="create-a-pull-request">Create a pull request</h3>
+
+<ol>
+<li>Visit your fork at <a href="https://github.com/$your_github_username/kubeless">https://github.com/$your_github_username/kubeless</a>.</li>
+<li>Click the <code>Compare &amp; pull request</code> button next to your <code>myfeature</code> branch.</li>
+<li>Make sure you fill up clearly the description, point out the particular
+issue your PR is mitigating, and ask for code review.</li>
+</ol>
+
+<h2 id="scripting-build-and-publishing">Scripting build and publishing</h2>
+
+<p>Example of shell script to setup a local environment, build the kubeless binaries and make it available on kubernetes.</p>
+
+<pre><code class="bash">#!/bin/bash
+
+
+# Please set GOROOT and GOPATH appropriately before running!
+#rm -rf $GOROOT/src/github.com
+
+#export GOROOT=
+#export GOPATH=
+#export PATH=$GOPATH:$PATH
+
+#KUBELESS_WORKING_DIR=$GOPATH/src/github.com/kubeless/
+#mkdir -p $KUBELESS_WORKING_DIR
+#cd $KUBELESS_WORKING_DIR
+#git clone https://github.com/&lt;INCLUDE HERE YOUR FORK AND UNCOMMENT&gt;
+#cd $KUBELESS_WORKING_DIR/kubeless
+#git remote add upstream https://github.com/DXBrazil/kubeless
+#git remote set-url --push upstream no_push
+#git remote -v
+# git checkout &lt;INCLUDE HERE YOUR BRANCH AND UNCOMMENT&gt;
+#git fetch
+
+#make binary
+#make controller-image
+
+#docker login -u=&lt;your docker hub user&gt; -e=&lt;your e-mail&gt;
+#docker tag kubeless-controller &lt;yourrepo&gt;/&lt;your-image&gt;
+#docker push &lt;your repo&gt;/&lt;your-image&gt;
+
+#kubectl delete -f &lt;path-to-yaml&gt;
+#kubectl delete namespace kubeless
+
+#a=Terminating
+
+#while [ $a == Terminating ]
+#do
+
+#a=`kubectl get ns | grep Termina | awk &#39;{print $2}&#39;`
+#sleep 5
+
+#done
+
+#kubectl create namespace kubeless
+#kubectl create -f &lt;path-to-yaml&gt;
+</code></pre>
+
+<h2 id="manage-dependencies">Manage dependencies</h2>
+
+<p>We use <a href="https://github.com/golang/dep">dep</a> to vendor the dependencies. Take a quick look at the README to understand how it works. Packages that Kubeless relies on are listed at <a href="https://github.com/golang/dep/blob/master/docs/Gopkg.toml.md">Gopkg.toml</a>.</p>
+
+<p>Happy hacking!</p>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

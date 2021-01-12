@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="deploying-kubeless-to-google-kubernetes-engine-gke">Deploying Kubeless to Google Kubernetes Engine (GKE)</h1>
+
+<p>This guide goes over the required steps for deploying Kubeless in GKE. There are a few pain points that you need to know in order to successfully deploy Kubeless in a GKE environment. First your google cloud account should have enough privileges to create and manage clusters. You can login to your account using the <code>gcloud</code> CLI tool:</p>
+
+<pre><code class="console">$ gcloud auth login
+Go to the following link in your browser:
+
+    https://accounts.google.com/o/oauth2/auth?redirect_uri=...
+
+Enter verification code: ...
+You are now logged in as [your@mail.com].
+Your current project is [your-project].  You can change this setting by running:
+  $ gcloud config set project PROJECT_ID
+</code></pre>
+
+<p>You can also follow the initialization process executing <code>gcloud init</code>.</p>
+
+<h2 id="creating-a-cluster">Creating a cluster</h2>
+
+<p>Once you are logged in, you can create the cluster:</p>
+
+<pre><code class="console">gcloud container clusters create \
+  --cluster-version=1.8.10-gke.0 \
+  my-cluster \
+  --num-nodes 5
+</code></pre>
+
+<p>At the moment of writing this document, the CI/CD system is testing Kubeless against GKE 1.8 so that&#39;s the one we are specifying as the desired version. You can check the current version tested in <a href="../.travis.yml">the Travis file</a>.</p>
+
+<p>The default number of nodes is 3. That default number is enough for small deployments but it is recommended to use at least 5 or 7 nodes so you don&#39;t run out of resources after deploying a few functions.</p>
+
+<p>After a few minutes you should be able to see your cluster running:</p>
+
+<pre><code class="console">$ gcloud container clusters list
+NAME        ...          STATUS
+my-cluster  ...          RUNNING
+</code></pre>
+
+<h2 id="creating-the-admin-clusterrolebinding">Creating the admin clusterrolebinding</h2>
+
+<p>For deploying Kubeless in your cluster, your user should have enough permissions for creating cluster roles and cluster role bindings. For doing so you need to give your current GKE account admin privileges in the new cluster. This is not being done by default so you need to do it manually:</p>
+
+<pre><code class="console">kubectl create clusterrolebinding kubeless-cluster-admin --clusterrole=cluster-admin --user=&lt;your-gke-user&gt;
+</code></pre>
+
+<p>The above command may fail with:</p>
+
+<pre><code class="console">Error from server (Forbidden): User &quot;your-gke-user&quot; cannot create
+clusterrolebindings.rbac.authorization.k8s.io at the cluster scope
+</code></pre>
+
+<p>This error is shown since your account doesn&#39;t have privileges to create <code>clusterrolebindings</code> (even if you are able to create clusters). If that is the case you can still perform the above operation using the default <code>admin</code> user. You can retrieve the admin password executing:</p>
+
+<pre><code class="console">gcloud container clusters describe my-cluster --zone &lt;my-cluster-zone&gt;
+</code></pre>
+
+<p>Once you have the admin password you can retry the command above:</p>
+
+<pre><code class="console">kubectl --username=admin --password=&lt;admin_password&gt; \
+  create clusterrolebinding kubeless-cluster-admin \
+  --clusterrole=cluster-admin --user=&lt;your-gke-user&gt;
+</code></pre>
+
+<h2 id="deploying-kubeless">Deploying Kubeless</h2>
+
+<p>After that your are finally able to deploy Kubeless. Get the latest release from the <a href="https://github.com/kubeless/kubeless/releases">release page</a> and deploy the RBAC version of the Kubeless manifest.</p>
+
+<h2 id="kubeless-on-gke-1-8-x-with-alpha-features">Kubeless on GKE 1.8.x with Alpha features</h2>
+
+<p>On GKE 1.8.x, when you have finished the above steps, there is still one step required to make the Kafka/Zookeeper PVC bounded if you enable alpha features when creating your cluster. Checking PVC you will see they are pending:</p>
+
+<pre><code>kubectl get pvc -n kubeless
+NAME              STATUS    VOLUME    CAPACITY   ACCESSMODES   STORAGECLASS   AGE
+datadir-kafka-0   Pending                                                     2m
+zookeeper-zoo-0   Pending                                                     2m
+</code></pre>
+
+<p>Because there are no correlative PV available, you have to create them. On GKE, you might want to go with <a href="https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk">GKE Persistent Disk</a>. First, create two PD with this command:</p>
+
+<pre><code class="console">gcloud compute disks create --size=1GB --zone=&lt;your_GKE_zone&gt; kubeless-kafka
+gcloud compute disks create --size=1GB --zone=&lt;your_GKE_zone&gt; kubeless-zookeeper
+</code></pre>
+
+<p>Then create Kafka and Zookeeper PV:</p>
+
+<pre><code class="console">kubectl create -f docs/misc/kafka-pv.yaml
+kubectl create -f docs/misc/zookeeper-pv.yaml
+</code></pre>
+
+<p>Once both PV are created, the PVC will be bounded shortly and you will see Kafka and Zookeeper running:</p>
+
+<pre><code class="console">kubectl get pod -n kubeless
+NAME                                   READY     STATUS    RESTARTS   AGE
+kafka-0                                1/1       Running   1          30m
+kubeless-controller-659755588f-bwch6   1/1       Running   0          30m
+zoo-0                                  1/1       Running   0          30m
+</code></pre>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

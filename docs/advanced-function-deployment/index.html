@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="deploying-kubeless-functions-using-kubernetes-api">Deploying Kubeless Functions using Kubernetes API</h1>
+
+<p>Apart from using the <code>kubeless</code> CLI, it is possible to deploy Kubeless Functions directly using the Kubernetes API and creating Function objects. A minimal Function might look like:</p>
+
+<pre><code class="yaml">apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  name: get-python
+  namespace: default
+  label:
+    created-by: kubeless
+    function: get-python
+spec:
+  runtime: python2.7
+  timeout: &quot;180&quot;
+  handler: helloget.foo
+  deps: &quot;&quot;
+  checksum: sha256:d251999dcbfdeccec385606fd0aec385b214cfc74ede8b6c9e47af71728f6e9a
+  function-content-type: text
+  function: |
+    def foo(event, context):
+        return &quot;hello world&quot;
+</code></pre>
+
+<p>The fields that a Function specification can contain are:</p>
+
+<ul>
+<li>Runtime: Runtime ID and version that the function will use. It should match one of the availables in the <a href="/docs/function-controller-configuration">Kubeless configuration</a>.</li>
+<li>Timeout: Maximum timeout for the given function. After that time, the function execution will be terminated.</li>
+<li>Handler: Pair of <code>&lt;file_name&gt;.&lt;function_name&gt;</code>. When using <code>zip</code> in <code>function-content-type</code> the <code>&lt;file_name&gt;</code> will be used to find the file with the function to expose. In other case it will be used just as a final file name. <code>&lt;function_name&gt;</code> is used to select the function to run from the exported functions of <code>&lt;file_name&gt;</code>. This field is mandatory and should match with an exported function.</li>
+<li>Deps: Dependencies of the function. The format of this field will depend on the runtime, e.g. a <code>package.json</code> for NodeJS functions or a <code>Gemfile</code> for Ruby.</li>
+<li>Checksum: SHA256 of the function content.</li>
+<li>Function content type: Content type of the function. Current supported values are <code>base64</code>, <code>url</code> or <code>text</code>. If the content is zipped the suffix <code>+zip</code> should be added.</li>
+<li>Function: Function content.</li>
+</ul>
+
+<p>Apart from the basic parameters, it is possible to add the specification of a <code>Deployment</code>, a <code>Service</code> or an <code>Horizontal Pod Autoscaler</code> that Kubeless will use to generate them.</p>
+
+<h2 id="pod-anti-affinity">Pod Anti Affinity</h2>
+
+<p>By default, a kubless generated <code>Deployment</code> will include a soft pod anti-affinity rule that will signal to kubernetes that it should try to deploy pods to different nodes. This behaviour can be overridden using a deployment template.</p>
+
+<h2 id="deploying-large-functions">Deploying large functions</h2>
+
+<p>As any Kubernetes object, function objects have a maximum size of 1.5MiB (due to the <a href="https://github.com/etcd-io/etcd/blob/master/Documentation/dev-guide/limit.md#request-size-limit">maximum size</a> of an etcd entry). Because of that, it&#39;s not possible to specify in the <code>function</code> field of the YAML content that surpasses that size. To workaround this issue it&#39;s possible to specify an URL in the <code>function</code> field. This file will be downloaded at build time (extracted if necessary) and the checksum will be checked. Doing this we avoid any limitation regarding the file size. It&#39;s also possible to include the function dependencies in this file and skip the dependency installation step. Note that since the file will be downloaded in a pod the URL should be accessible from within the cluster:</p>
+
+<pre><code class="yaml">  checksum: sha256:d1f84e9f0a8ce27e7d9ce6f457126a8f92e957e5109312e7996373f658015547
+  function: https://github.com/kubeless/kubeless/blob/master/examples/nodejs/helloFunctions.zip?raw=true
+  function-content-type: url+zip
+</code></pre>
+
+<h2 id="custom-deployment">Custom Deployment</h2>
+
+<p>It is possible to specify a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment"><code>Deployment</code> spec</a> in the Function spec that will be merged with default values set by the Kubeless controller. It is not necessary to specify all the fields of the deployment, just the fields you are interested on overwriting. For example:</p>
+
+<pre><code class="yaml">apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  name: get-python
+...
+spec:
+...
+  deployment:
+    spec:
+      template:
+        spec:
+          initContainers:
+          - resources:
+              limits:
+                cpu: 200m
+                memory: 200Mi
+              requests:
+                cpu: 200m
+                memory: 200Mi
+          containers:
+          - env:
+            - name: FOO
+              value: bar
+            name: &quot;&quot;
+            resources:
+              limits:
+                cpu: 100m
+                memory: 100Mi
+              requests:
+                cpu: 100m
+                memory: 100Mi
+            volumeMounts:
+            - mountPath: /my_secret
+              name: my-secret-vol
+          volumes:
+          - name: my-secret-vol
+            secret:
+              secretName: my-secret
+</code></pre>
+
+<p>Would create a function with the environment variable <code>FOO</code>, using CPU and memory limits and mounting the secret <code>my-secret</code> as a volume. Note that you can also specify a default template for a Deployment spec in the <a href="/docs/function-controller-configuration">controller configuration</a>.<br>
+The resource configuration in <code>initContainers</code> will be applied to all of the initial containers in the target deployment (like <code>provision</code>, <code>compile</code> etc.)</p>
+
+<h2 id="custom-service">Custom Service</h2>
+
+<p>As with a deployment, it is possible to specify custom values for a <a href="https://kubernetes.io/docs/concepts/services-networking/service">Service</a>. This would be an example:</p>
+
+<pre><code class="yaml">apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  name: get-python
+...
+spec:
+...
+  service:
+    clusterIP: None
+    ports:
+    - name: http-function-port
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      created-by: kubeless
+      function: get-python
+    type: ClusterIP
+</code></pre>
+
+<p>The example above will create a headless service running in the port 9090.</p>
+
+<h2 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler</h2>
+
+<p>For configuring the <a href="/docs/autoscaling">autoscale feature</a> it is possible to attach an <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler</a> to a function:</p>
+
+<pre><code class="yaml">apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  name: get-python
+...
+spec:
+...
+  horizontalPodAutoscaler:
+    apiVersion: autoscaling/v2beta1
+    kind: HorizontalPodAutoscaler
+    metadata:
+      name: get-python
+      namespace: default
+    spec:
+      maxReplicas: 3
+      metrics:
+      - resource:
+          name: cpu
+          targetAverageUtilization: 70
+        type: Resource
+      minReplicas: 1
+      scaleTargetRef:
+        apiVersion: apps/v1beta1
+        kind: Deployment
+        name: get-python
+</code></pre>
+
+<p>The above specification will create a Horizontal Pod Autoscaler using CPU metrics.</p>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

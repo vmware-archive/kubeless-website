@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="controller-configurations-for-functions">Controller configurations for Functions</h1>
+
+<h2 id="using-configmap">Using ConfigMap</h2>
+
+<p>Configurations for functions can be done in <code>ConfigMap</code>: <code>kubeless-config</code> which is a part of <code>Kubeless</code> deployment manifests.</p>
+
+<p>Deployments for function can be configured in <code>data</code> inside the <code>ConfigMap</code>, using key <code>deployment</code>, which takes a string in the form of <code>yaml/json</code> and is driven by the structure of <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#deployment-v1-apps">v1.Deployment</a>:</p>
+
+<p>E.g. In the below configuration, new <strong>annotations</strong> are added globally to all function deployments and podTemplates and <strong>replicas</strong> for each function pod will be <code>2</code>.</p>
+
+<pre><code class="yaml">apiVersion: v1
+data:
+  deployment: |-
+    {
+      &quot;metadata&quot;: {
+          &quot;annotations&quot;:{
+            &quot;annotation-to-deployment&quot;: &quot;value&quot;
+          }
+      },
+      &quot;spec&quot;: {
+        &quot;replicas&quot;: 2,
+        &quot;template&quot;: {
+          &quot;annotations&quot;: {
+            &quot;annotations-to-pod&quot;: &quot;value&quot;
+          },
+          &quot;containers&quot;: [{
+            &quot;resources&quot;: {
+              &quot;requests&quot;: {
+                &quot;cpu&quot;: &quot;100m&quot;
+              }
+            }
+          }]
+        }
+      }
+    }
+  ingress-enabled: &quot;false&quot;
+  service-type: ClusterIP
+kind: ConfigMap
+metadata:
+  name: kubeless-config
+  namespace: kubeless
+</code></pre>
+
+<p>It is <strong>recommended</strong> to have controlled custom configurations on the following <strong>items</strong> (<em>but is not limited to just these</em>):</p>
+
+<blockquote>
+<p>Warning: You should know what you are doing.</p>
+</blockquote>
+
+<ul>
+<li>v1beta2.Deployment.ObjectMeta.Annotations</li>
+<li>v1beta2.Deployment.Spec.replicas</li>
+<li>v1beta2.Deployment.Spec.Strategy</li>
+<li>v1beta2.Deployment.Spec.Template.ObjectMeta.Annotations</li>
+<li>v1beta2.Deployment.Spec.Template.Spec.NodeSelector</li>
+<li>v1beta2.Deployment.Spec.Template.Spec.NodeName</li>
+</ul>
+
+<p>Having said all that, if one wants to override configurations from the <code>ConfigMap</code> then in <code>Function</code> manifest one needs to provide the details as follows:</p>
+
+<pre><code class="yaml">apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  name: testfunc
+spec:
+  deployment:  ### Definition as per v1beta2.Deployment
+    metadata:
+      annotations:
+        &quot;annotation-to-deploy&quot;: &quot;final-value-in-deployment&quot;
+    spec:
+      replicas: 2  ### Final deployment gets Replicas as 2
+      template:
+        metadata:
+          annotations:
+            &quot;annotation-to-pod&quot;: &quot;value&quot;
+  deps: &quot;&quot;
+  function: |
+    module.exports = {
+      foo: function (req, res) {
+            res.end(&#39;hello world updated!!!&#39;)
+      }
+    }
+  function-content-type: text
+  handler: hello.foo
+  runtime: nodejs8
+  service:
+    ports:
+    - name: http-function-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    type: ClusterIP
+</code></pre>
+
+<h2 id="install-kubeless-in-different-namespace">Install kubeless in different namespace</h2>
+
+<p>If you have installed kubeless into some other namespace (which is not called <code>kubeless</code>) or changed the name of the config file from kubeless-config to something else, then you have to export the kubeless namespace and the name of kubeless config as environment variables before using kubless cli. This can be done as follows:</p>
+
+<pre><code class="bash">$ export KUBELESS_NAMESPACE=&lt;name of namespace&gt;
+$ export KUBELESS_CONFIG=&lt;name of config file&gt;
+</code></pre>
+
+<p>or the following information can be added to <code>functions.kubeless.io</code> <code>CustomResourceDefinition</code> as <code>annotations</code>. E.g. below <code>CustomResourceDefinition</code> will signify <code>kubeless-controller</code> is installed in namespace <code>kubless-new-namespace</code> and config name is <code>kubeless-config-new-name</code></p>
+
+<pre><code class="yaml">apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: functions.kubeless.io
+  annotations:
+    kubeless.io/namespace: kubless-new-namespace
+    kubeless.io/config: kubeless-config-new-name
+spec:
+  group: kubeless.io
+  names:
+    kind: Function
+    plural: functions
+    singular: function
+  scope: Namespaced
+  version: v1beta1
+</code></pre>
+
+<p>The priority of deciding the <code>namespace</code> and <code>config name</code> (highest to lowest) is:</p>
+
+<ul>
+<li>Environment variables</li>
+<li>Annotations in <code>functions.kubeless.io</code> CRD</li>
+<li>default: <code>namespace</code> is <code>kubeless</code> and <code>ConfigMap</code> is <code>kubeless-config</code></li>
+</ul>
+
+<h3 id="install-several-instances-of-kubeless-multi-tenancy">Install several instances of kubeless (multi-tenancy)</h3>
+
+<p>It is possible to install Kubeless in several namespaces. This allow administrators to have several instances of Kubeless that can be configured differently (for example using different runtime images or with different Docker credentials).</p>
+
+<p>In order to install Kubeless in a custom namespace (or in several ones) it&#39;s necessary to:</p>
+
+<ul>
+<li>Install the <code>CustomResourceDefinitions</code> and <code>ClusterRoles</code> as in the default scenario. These resources are not namespaced which means that you need to install them just once. It is also recommendable to split the current rules of the <code>ClusterRole</code> into two different roles: one just for accessing cluster-wide resources like <code>CustomResourceDefinitions</code> and a second one with the rest of resources. That way it&#39;s possible to attach the first <code>ClusterRole</code> to a <code>ClusterRoleBinding</code> as the default scenario but attaching the second one with a namespaced <code>RoleBinding</code> to avoid unauthorized access to other namespaces. More information about <code>RBAC</code> <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">here</a>.</li>
+<li>The rest of the resources you can find in the installation manifest (<code>Deployment</code>, <code>ConfigMap</code>, <code>ServiceAccount</code>...) are namespaced. This means that it&#39;s required to modify the <code>metadata.namespace</code> of each one of those to target the correct namespace.</li>
+<li>The next step is to set in the Kubeless ConfigMap the namespace in which the controller should listen for functions. This is set in the variable <code>functions-namespace</code>. If this value is empty it will try to find functions in all namespaces.</li>
+</ul>
+
+<p>This is an example of a manifest (simplified) for a Kubeless instance deployed in the namespace &quot;test&quot;:</p>
+
+<pre><code class="yaml"># RBAC Configuration
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: kubeless-controller-read
+rules:
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: kubeless-controller-deployer
+rules:
+- apiGroups:
+  - &quot;&quot;
+  resources:
+  - services
+  - configmaps
+  verbs:
+  ... # The rest of the ClusterRole has been omitted
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: controller-acct
+  namespace: test
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kubeless-controller-read-test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kubeless-controller-read
+subjects:
+- kind: ServiceAccount
+  name: controller-acct
+  namespace: test
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+  name: kubeless-controller-deployer
+  namespace: test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kubeless-controller-deployer
+subjects:
+- kind: ServiceAccount
+  name: controller-acct
+
+# Kubeless Configuration
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubeless-config
+  namespace: test
+data:
+  functions-namespace: &quot;test&quot;
+  ...  # The rest of the ConfigMap data has been omitted
+
+# Kubeless core controller
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    kubeless: controller
+  name: kubeless-controller-manager
+  namespace: test
+spec:
+  ... # The rest of the Deployment has been omitted
+</code></pre>
+
+<p>The same process should be followed for any trigger controller installed (Kafka, Nats, ...): Adapt the RBAC configuration and change the resources namespace. These controllers will read the <code>functions-namespace</code> property from the main ConfigMap.</p>
+
+<h2 id="using-custom-images">Using custom images</h2>
+
+<p>It is possible to configure the different images that Kubeless uses for deploy and execute functions. In this ConfigMap you can configure:</p>
+
+<ul>
+<li>Different or additional runtimes. For doing so it is possible to modify/add a runtime in the field <code>runtimeImages</code>. Runtimes are categorized by major version. See the guide for <a href="/docs/implementing-new-runtime">implementing a new runtime</a> for more information. Each major version has:
+
+<ul>
+<li>Name: Unique ID of the runtime. It should contain the runtime name and version.</li>
+<li>Version: Major and minor version of the runtime.</li>
+<li>Runtime Image: Image used to execute the function.</li>
+<li>Init Image: Image used for installing the function and/or dependencies.</li>
+<li>(Optional) Image Pull Secrets: Secret required to pull the image in case the repository is private.</li>
+</ul></li>
+<li>The image used to populate the base image with the function. This is called <code>provision-image</code>. This image should have at least <code>unzip</code> and <code>curl</code>. It is also possible to specify <code>provision-image-secret</code> to specify a secret to pull that image from a private registry. </li>
+<li>The image used to build function images. This is called <code>builder-image</code>. This image is optional since its usage can be disabled with the property <code>enable-build-step</code>. A Dockerfile to build this image can be found <a href="https://github.com/kubeless/kubeless/tree/master/docker/function-image-builder">here</a>. It is also possible to specify <code>builder-image-secret</code> to specify a secret to pull that image from a private registry.</li>
+</ul>
+
+<h2 id="authenticate-kubeless-function-controller-using-oauth-bearer-token">Authenticate Kubeless Function Controller using OAuth Bearer Token</h2>
+
+<p>In some non-RBAC k8s deployments using webhook authorization, service accounts may have insufficient privileges to perform all k8s operations that the Kubeless Function Controller requires for interacting with the cluster. It&#39;s possible to override the default behavior of the Kubeless Function Controller using a k8s serviceaccount for authentication with the cluster and instead use a provided OAuth Bearer token for all k8s operations. </p>
+
+<p>This can be done by creating a k8s secret and mounting that secret as a volume on controller pods, then setting the environmental variable <code>KUBELESS_TOKEN_FILE_PATH</code> to the filepath of that secret. Be sure to set this environmental variable on the controller template spec or to every pod created in the deployment.</p>
+
+<p>For example, if the bearer token is mounted at /mnt/secrets/bearer-token, this k8s spec can use it:</p>
+
+<pre><code class="yaml"># Kubeless core controller
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kubeless-controller-manager
+  namespace: kubeless
+  labels:
+    kubeless: controller
+spec:
+  template:
+    metadata:
+      labels:
+        kubeless: controller
+    spec:
+      containers:
+      - env:
+        - name: KUBELESS_TOKEN_FILE_PATH
+          value: /mnt/secrets/bearer-token
+  ... # The rest of the Deployment has been omitted
+</code></pre>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

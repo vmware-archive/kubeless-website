@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="scheduling-the-trigger-of-a-function">Scheduling the trigger of a function</h1>
+
+<p>Kubeless has its own CronJobTrigger which uses <a href="https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/">Kubernetes CronJob</a> to trigger your function in a given schedule. On this page, we&#39;re going to cover how to use it, and some basic features.</p>
+
+<h2 id="creating-a-new-cronjobtrigger">Creating a new CronJobTrigger</h2>
+
+<p>You can create a new cron trigger using <code>kubeless-cli</code>. In this section, we&#39;re going to show you how to create a simple function that logs <code>Hello world!</code> every 1 minute. </p>
+
+<p>For this example you&#39;re going to need the following tools:</p>
+
+<ul>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">Minikube</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Kubectl</a></li>
+<li><a href="/docs/quick-start/">Kubeless CLI</a></li>
+</ul>
+
+<p>After installing all the requirements, you can proceed to the step-by-step guide:</p>
+
+<h3 id="step-1-create-a-new-minikube-cluster">Step 1: Create a new Minikube cluster</h3>
+
+<p>In this step, you&#39;re going to create a new Minikube cluster called <code>kubeless</code>, where you&#39;re going to deploy the function triggers. You can run the following command on your shell:</p>
+
+<pre><code class="shell">minikube start -p kubeless
+</code></pre>
+
+<p><strong>IMPORTANT:</strong> If you have already created any Minikube cluster called <code>kubeless</code> you should delete it first, with <code>minikube delete -p kubeless</code></p>
+
+<h3 id="step-2-install-kubeless-on-your-cluster">Step 2: Install Kubeless on your cluster</h3>
+
+<p>Now that you have a Minikube cluster running, you can run the following command to install the latest version of Kubeless:</p>
+
+<pre><code class="shell">RELEASE=$(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | grep tag_name | cut -d &#39;&quot;&#39; -f 4) &amp;&amp; \
+  kubectl create ns kubeless &amp;&amp; \
+  kubectl create -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-$RELEASE.yaml
+</code></pre>
+
+<h3 id="step-3-deploy-a-test-function">Step 3: Deploy a test function</h3>
+
+<p>For this CronJob test, we&#39;re going to use a simple function that just logs a &quot;Hello world!&quot; message. Since this isn&#39;t a tutorial explaining how to deploy a function you can just run the following command:</p>
+
+<pre><code class="shell"> kubectl apply -f https://gist.githubusercontent.com/odelucca/1f3a71b7ff05f31d492dc5bfd3f3afba/raw/5237991f018f99a697e937a85e60e57dd8ac1a1c/function.yaml
+</code></pre>
+
+<h3 id="step-4-create-a-new-cronjob-trigger">Step 4: Create a new CronJob trigger</h3>
+
+<p>To create a CronJob trigger with <code>kubeless-cli</code> you can run the following command:</p>
+
+<pre><code class="shell">kubeless trigger cronjob create \
+  cron-test-hello-world \
+  --function cron-test-hello-world \
+  --schedule &quot;*/1 * * * *&quot;
+</code></pre>
+
+<p>About the provided arguments:</p>
+
+<ul>
+<li><strong>The first argument</strong> must be the trigger name you want to use</li>
+<li><strong>--function</strong> should be the name of the function you want to trigger with that cron</li>
+<li><strong>--schedule</strong> the cron pattern to trigger your function</li>
+</ul>
+
+<h3 id="step-5-take-a-look-on-your-function-logs">Step 5: Take a look on your function logs</h3>
+
+<p>Now, wait 1 or 2 minutes and take a look at your function logs with this command:</p>
+
+<pre><code class="shell">kubeless function logs cron-test-hello-world
+</code></pre>
+
+<p>You should see some <code>Hello world!</code> logs, showing that our CronJob is working as expected.</p>
+
+<h2 id="advanced-concepts">Advanced concepts</h2>
+
+<p>In this section, we&#39;re going to cover some advanced concepts regarding the CronJob trigger. Each item in this section will cover a given feature that you can use on your triggers.</p>
+
+<h3 id="passing-payload-data-to-the-function">Passing payload data to the function</h3>
+
+<p>While triggering a function you could pass also a payload data to it. Those will be available on <code>event.data</code> (like any other request data). You can do so with the following command:</p>
+
+<pre><code class="shell">kubeless trigger cronjob (create or update) --payload &lt;stringified JSON&gt;
+</code></pre>
+
+<p>If you&#39;re not willing to provide a stringified JSON to the <code>--payload</code> argument, you can use <code>--payload-from-file</code> instead and pass a file path. You can provide files on the following extensions:</p>
+
+<ul>
+<li><code>.json</code></li>
+<li><code>.yaml</code></li>
+</ul>
+
+<p><strong>IMPORTANT:</strong> Your payload must be an object, so you cannot provide a JSON array to it, but you can add a key on your object that can contain a list of items instead.</p>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

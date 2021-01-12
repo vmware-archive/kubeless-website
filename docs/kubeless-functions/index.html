@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="kubeless-functions">Kubeless Functions</h1>
+
+<p>Functions are the main entity in Kubeless. It is possible to write Functions in different languages but all of them share common properties like the generic interface, the default timeout or the runtime UID. In this document we are going to explain some these common properties and different runtimes availables in Kubeless. You can find in depth details about the Function specification <a href="/docs/advanced-function-deployment">here</a>. </p>
+
+<h2 id="functions-interface">Functions Interface</h2>
+
+<p>Every function receives two arguments: <code>event</code> and <code>context</code>. The first argument contains information about the source of the event that the function has received. The second contains general information about the function like its name or maximum timeout. This is a representation in YAML of a Kafka event:</p>
+
+<pre><code class="yaml">event:                                  
+  data:                                         # Event data
+    foo: &quot;bar&quot;                                  # The data is parsed as JSON when required
+  event-id: &quot;2ebb072eb24264f55b3fff&quot;            # Event ID
+  event-type: &quot;application/json&quot;                # Event content type
+  event-time: &quot;2009-11-10 23:00:00 +0000 UTC&quot;   # Timestamp of the event source
+  event-namespace: &quot;kafkatriggers.kubeless.io&quot;  # Event emitter
+  extensions:                                   # Optional parameters
+    request: ...                                # Reference to the request received 
+    response: ...                               # Reference to the response to send 
+                                                # (specific properties will depend on the function language)
+context:
+    function-name: &quot;pubsub-nodejs&quot;
+    timeout: &quot;180&quot;
+    runtime: &quot;nodejs6&quot;
+    memory-limit: &quot;128M&quot;
+</code></pre>
+
+<p>Functions should return a string that will be used as the HTTP response for the caller. Some runtimes may support different types (like objects) for the returned values.</p>
+
+<p>You can check basic examples of every language supported in the <a href="https://github.com/kubeless/kubeless/tree/master/examples">examples</a> folder.</p>
+
+<h2 id="functions-timeout">Functions Timeout</h2>
+
+<p>Runtimes have a maximum timeout set by the environment variable FUNC_TIMEOUT. This environment variable can be set using the CLI option <code>--timeout</code>. The default value is 180 seconds. If a function takes more than that in being executed, the process will be terminated.</p>
+
+<h2 id="runtime-user">Runtime User</h2>
+
+<p>As a <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Security Context</a> functions are configured to run with an unprivileged user (UID 1000) by default (except for OpenShift where the UID is automatically set). This prevent functions from having root privileges. This default behaviour can be overridden specifying a different Security Context in the <code>Deployment</code> template that is part of the Function Spec.</p>
+
+<h2 id="scheduled-functions">Scheduled functions</h2>
+
+<p>It is possible to deploy functions that should be triggered following a certain schedule. For specifying the execution frequency we use the <a href="https://en.wikipedia.org/wiki/Cron">Cron</a> format. Every time a scheduled function is executed, a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Job</a> is started. This Job will do a HTTP GET request to the function service and will be successful as far as the function returns 200 OK.</p>
+
+<p>For executing scheduled functions we use Kubernetes <a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">CronJobs</a> using mostly the default options which means:<br>
+ - If a Job fails, it won&#39;t be restarted but it will be retried in the next scheduled event. The maximum time that a Job will exist is specified with the function timeout (180 seconds by default).<br>
+ - The concurrency policy is set to <code>Allow</code> so concurrent jobs may exists.<br>
+ - The history limit is set to maintain as maximum three successful jobs (and one failed).</p>
+
+<p>If for some reason you want to modify one of the default values for a certain function you can execute <code>kubectl edit cronjob trigger-&lt;func_name&gt;</code> (where <code>func_name</code> is the name of your function) and modify the fields required. Once it is saved the CronJob will be updated.</p>
+
+<h2 id="monitoring-functions">Monitoring functions</h2>
+
+<p>Some Kubeless runtimes expose metrics at <code>/metrics</code> endpoint and these metrics will be collected by Prometheus. We also include a prometheus setup in <a href="https://github.com/kubeless/kubeless/blob/master/manifests/monitoring/prometheus.yaml"><code>manifests/monitoring</code></a> to help you easier set it up. The metrics collected are: Number of calls, succeeded and error executions and the time spent per call.</p>
+
+<h2 id="runtime-variants">Runtime variants</h2>
+
+<p>Check <a href="/docs/runtimes">this document</a> to get more details about supported runtimes and languages.</p>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

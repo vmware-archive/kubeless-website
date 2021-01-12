@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="build-process-for-functions">Build process for functions</h1>
+
+<blockquote>
+<p><strong>Warning</strong>: This feature is still under heavy development</p>
+</blockquote>
+
+<p>Kubeless includes a way of building and storing functions as docker images. This can be used to:</p>
+
+<ul>
+<li>Persist function: Functions now become docker images that can be safely stored in a docker registry.</li>
+<li>Speed up the process of redeploying the same function. This is specifically useful for scaling up your function.</li>
+<li>Generate immutable function deployments. Once a function image is generated, the same image will be used every time the function is used.</li>
+</ul>
+
+<h3 id="optional-start-a-docker-registry">[Optional] Start a Docker registry</h3>
+
+<p>It is possible to use the Docker Hub to store your functions but if you want your functions to be private it is necessary to deploy a different Docker registry. In case you want to use the Docker Hub or if you already have a private Docker Registry jump to the <a href="#setup-the-build-process">setup section</a>. In other case, if you are working with Minikube in a testing environment, you can still deploy a registry as a container in the Minikube VM. For doing that, the first step is to start Minikube setting an insecure registry IP range:</p>
+
+<pre><code class="console">minikube start --insecure-registry 192.168.99.100:5000
+</code></pre>
+
+<p>Note that <code>192.168.99.100</code> is the IP that the Minikube VM is going to use in the host machine. You will need to use a different one if the IP of your VM is different. You can retrieve the IP executing <code>minikube ip</code>. You can also specify a range: e.g. <code>0.0.0.0/0</code> would allow an insecure registry in any IP.</p>
+
+<p>If you already have a running Minikube VM, the previous command would not work since the insecure registry property <a href="https://github.com/kubernetes/minikube/issues/604#issuecomment-309296149">is set in the first boot</a>. If that is your case, stop your minikube instance, edit the file <code>$HOME/.minikube/machines/minikube/config.json</code> and change the property <code>HostOptions &gt; EngineOptions &gt; InsecureRegistry</code> to specify your IP. Then start your instance again.</p>
+
+<p>Once minikube has started you can start the registry container:</p>
+
+<pre><code class="console">eval $(minikube docker-env)
+docker run -d -p 5000:5000 --restart=always --name registry -v /data/docker-registry:/var/lib/registry registry:2
+</code></pre>
+
+<p>That will start the Docker registry using <code>/data/docker-registry</code> as the data folder for your images. This directory will be persisted after stopping the Minikube instance <a href="https://github.com/kubernetes/minikube/blob/master/docs/persistent_volumes.md#persistent-volumes">as documented in the Minikube repository</a>.</p>
+
+<h2 id="setup-the-build-process">Setup the build process</h2>
+
+<p>In order to setup the build process the steps needed are:</p>
+
+<ul>
+<li>Generate a Kubernetes <a href="https://kubernetes.io/docs/concepts/configuration/secret">secret</a> with the credentials required to push images to the docker registry and enable the build st. In order to do so, <code>kubectl</code> has an utility that allows you to create this secret in just one command:</li>
+</ul>
+
+<p>| <strong>Note</strong>: The command below will generate the correct secret only if the version of <code>kubectl</code> is 1.9+ </p>
+
+<pre><code class="console">kubectl create secret docker-registry kubeless-registry-credentials \
+  --docker-server=https://index.docker.io/v1/ \
+  --docker-username=user \
+  --docker-password=password \
+  --docker-email=user@example.com
+</code></pre>
+
+<blockquote>
+<p>Note: In case you have followed the <a href="#start-a-docker-registry">previous guide</a> to deploy an insecure registry you need to specify as docker-server <code>http://$(minikube ip):5000/v2</code> and any value as username, password and email.</p>
+</blockquote>
+
+<p>If the secret has been generated correctly you should see the following output:</p>
+
+<pre><code class="console">$ kubectl get secret kubeless-registry-credentials --output=&quot;jsonpath={.data.\.dockerconfigjson}&quot; | base64 -d
+
+{&quot;auths&quot;:{&quot;https://index.docker.io/v1/&quot;:{&quot;username&quot;:&quot;user&quot;,&quot;password&quot;:&quot;password&quot;,&quot;email&quot;:&quot;user@example.com&quot;,&quot;auth&quot;:&quot;dGVfdDpwYZNz&quot;}}}
+</code></pre>
+
+<ul>
+<li>Enable the build step in the Kubeless configuration. If you have already deploy Kubeless you can enable it editing the configmap. You will need to set the property <code>enable-build-step: &quot;false&quot;</code> to <code>&quot;true&quot;</code>. If you are using an insecure registry you will need to set the property <code>function-registry-tls-verify: &quot;false&quot;</code> as well.</li>
+</ul>
+
+<pre><code class="console"> kubectl edit configmaps -n kubeless kubeless-config
+</code></pre>
+
+<ul>
+<li>Once the build step is enabled you need to restart the controller in order for the changes to take effect:</li>
+</ul>
+
+<pre><code class="console"> kubectl delete pod -n kubeless -l kubeless=controller
+</code></pre>
+
+<p>Once the secret is available and the build step is enabled Kubeless will automatically start building function images.</p>
+
+<h2 id="build-process">Build process</h2>
+
+<p>The following diagram represents the building process:</p>
+
+<p><img src="/docs/img/build-process.png" alt="Build Process" /></p>
+
+<p>When a new function is created the Kubeless Controller generates two items:</p>
+
+<ul>
+<li>A <a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Kubernetes job</a> that will use the registry credentials to push a new image under the <code>user</code> repository. It will use the checksum (SHA256) of the function specification as tag so any change in the function will generate a different image.</li>
+<li>A Pod to run the function. This pod will wait until the previous job finishes in order to pull the function image.</li>
+</ul>
+
+<h2 id="known-limitations">Known limitations</h2>
+
+<ul>
+<li>It is only possible to use a single registry to pull images and push them so if the build system is used with a registry different than <a href="https://index.docker.io/v1/">https://index.docker.io/v1/</a> (the official one) the images present in the Kubeless ConfigMap should be copied to the new registry.</li>
+<li>Base images are not currently cached, that means that every time a new build is triggered it will download the base image.</li>
+</ul>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>

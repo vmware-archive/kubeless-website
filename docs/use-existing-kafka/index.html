@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<!-- Head information -->
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width' initial-scale='1' name='viewport'>
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<!-- %meta{content: 'IE=edge,chrome=1', http-equiv: 'X-UA-Compatible'} -->
+<link href='/assets/images/favicon/favicon-196x196.png' rel='icon' sizes='196x196' type='image/png'>
+<link href='/assets/images/favicon/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='/assets/images/favicon/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='/assets/images/favicon/favicon-128.png' rel='icon' sizes='128x128' type='image/png'>
+<link href='/assets/images/favicon/favicon.ico' rel='icon'>
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>
+Kubeless
+</title>
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css' media='screen' rel='stylesheet'>
+<!-- Bitnami Design System -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700|Hind:300,400' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.components.min.css' media='screen' rel='stylesheet'>
+<link href='//d1d5nb8vlsbujg.cloudfront.net/bitnami-ui/2.0.1/bitnami.ui.min.css' media='screen' rel='stylesheet'>
+<!-- Include the javascripts and the styles of the page -->
+<link href="/assets/stylesheets/main.css" rel="stylesheet" />
+<script src="/assets/javascripts/main.js"></script>
+</head>
+
+<!-- Main content -->
+<body>
+<div class='gradient-135-accent elevation-1'>
+<div class='container'>
+<header class='Header padding-v-big'>
+<div class='row collapse-b-tablet align-center'>
+<div class='col-4'>
+<div class='Header__Logo'>
+<a href="/"><img src="/assets/images/logo-white.svg" alt="Logo white" />
+<span>
+A Bitnami project
+</span>
+</a></div>
+</div>
+<div class='col-8'>
+<nav class='text-r'>
+<a href="/" class="margin-h-normal">Home</a>
+<a href="/docs" class="margin-h-normal">Documentation</a>
+<a href="https://github.com/kubeless/kubeless-ui" class="margin-h-normal">Kubeless UI</a>
+<a href="https://serverless.com/framework/docs/providers/kubeless/guide/intro/" class="margin-h-normal">Serverless Plugin</a>
+<a href="https://github.com/kubeless" class="margin-l-normal">GitHub</a>
+</nav>
+</div>
+</div>
+</header>
+
+</div>
+</div>
+<main class='container margin-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-3'>
+<h4 class='margin-t-bigger'>
+<img src="/assets/images/logo-dark.svg" alt="Kubeless logo" class="float-l avatar avatar-medium" />
+<div class='padding-v-small'>
+Documentation
+</div>
+</h4>
+<ul class='remove-style padding-small'>
+<li>
+<b>Usage</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/quick-start">Quick Start
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/runtimes">Runtimes
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-functions">Function Characteristics
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/triggers">Triggers
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/pubsub-functions">PubSub Mechanism
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/http-triggers">Expose and Secure Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/cronjob-triggers">Scheduling a function execution (CronJob)
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/streaming-functions">Data Stream Events
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debug-functions">Debug Functions
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/autoscaling">Autoscaling
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/building-functions">Build Function Images
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/monitoring">Monitoring
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/advanced-function-deployment">Advanced deployment
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/function-controller-configuration">Kubeless Configuration
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/use-existing-kafka">Use a Custom Apache Kafka
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/troubleshooting">Install Troubleshooting
+</a></li>
+<li class='padding-t-big'>
+<b>Cloud Providers</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/kubeless-on-AKS">Azure Kubernetes Service
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/GKE-deployment">Google Kubernetes Engine
+</a></li>
+<li class='padding-t-big'>
+<b>Development</b>
+</li>
+<li class='margin-v-small'>
+<a href="/docs/architecture">Architecture
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/dev-guide">Development Guide
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-runtime">Implementing a New Runtime
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/implementing-new-trigger">Implementing a New Trigger
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/debugging">Debugging
+</a></li>
+<li class='margin-v-small'>
+<a href="/docs/release-flow">Release Flow
+</a></li>
+</ul>
+
+</div>
+<div class='col-9'>
+<h1 id="use-an-existing-kafka-cluster-with-kubeless">Use an existing Kafka cluster with Kubeless</h1>
+
+<p>In Kubeless <a href="https://github.com/kubeless/kubeless/releases">release page</a>, we provide along with Kubeless manifests a collection of Kafka and Zookeeper statefulsets which helps user to quickly deploying PubSub function. These statefulsets are deployed in <code>kubeless</code> namespace. However, if you have a Kafka cluster already running in the same Kubernetes cluster, this doc will walk you through how to deploy Kubeless PubSub function with it.</p>
+
+<p>Let&#39;s assume that you have Kafka cluster running at <code>pubsub</code> namespace like below:</p>
+
+<pre><code class="console">$ kubectl -n pubsub get po
+NAME      READY     STATUS    RESTARTS   AGE
+kafka-0   1/1       Running   0          7h
+zoo-0     1/1       Running   0          7h
+
+$ kubectl -n pubsub get svc
+NAME        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+kafka       ClusterIP   10.55.253.151   &lt;none&gt;        9092/TCP            7h
+zookeeper   ClusterIP   10.55.248.146   &lt;none&gt;        2181/TCP            7h
+</code></pre>
+
+<p><strong>Note</strong>: If you want to use the command <code>kubeless topic</code> you need add a label to your Kafka deployment (<code>kubeless=kafka</code>) in order for the CLI to find it. </p>
+
+<p>And Kubeless already running at <code>kubeless</code> namespace:</p>
+
+<pre><code class="console">$ kubectl -n kubeless get po
+NAME                                           READY     STATUS    RESTARTS   AGE
+kubeless-controller-manager-58676964bb-l79gh   1/1       Running   0          5d
+</code></pre>
+
+<p>Now we need to deploy the Kafka consumer and the Kafka Trigger CRD. We can do that extracting the Deployment, CRD and ClusterRoles from the generic Kafka manifest. The key part is adding the environment variable <code>KAFKA_BROKERS</code> pointing to the right URL:</p>
+
+<pre><code class="yaml">$ echo &#39;
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    kubeless: kafka-trigger-controller
+  name: kafka-trigger-controller
+  namespace: kubeless
+spec:
+  selector:
+    matchLabels:
+      kubeless: kafka-trigger-controller
+  template:
+    metadata:
+      labels:
+        kubeless: kafka-trigger-controller
+    spec:
+      containers:
+      - image: bitnami/kafka-trigger-controller:latest
+        imagePullPolicy: IfNotPresent
+        name: kafka-trigger-controller
+        env:
+        - name: KAFKA_BROKERS
+          value: kafka.pubsub:9092 # CHANGE THIS!
+      serviceAccountName: controller-acct
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: kafkatriggers.kubeless.io
+spec:
+  group: kubeless.io
+  names:
+    kind: KafkaTrigger
+    plural: kafkatriggers
+    singular: kafkatrigger
+  scope: Namespaced
+  version: v1beta1
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kafka-controller-deployer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kafka-controller-deployer
+subjects:
+- kind: ServiceAccount
+  name: controller-acct
+  namespace: kubeless
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: kafka-controller-deployer
+rules:
+- apiGroups:
+  - &quot;&quot;
+  resources:
+  - services
+  - configmaps
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - kubeless.io
+  resources:
+  - functions
+  - kafkatriggers
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - delete
+&#39; | kubectl create -f -
+deployment &quot;kafka-trigger-controller&quot; created
+clusterrolebinding &quot;kafka-controller-deployer&quot; created
+clusterrole &quot;kafka-controller-deployer&quot; created
+customresourcedefinition &quot;kafkatriggers.kubeless.io&quot; created
+</code></pre>
+
+<p>Now we need to create <code>s3-python</code> topic and try to publish some messages. You can do it on your own kafka client. In this example, I will try to use the bundled binaries in the kafka container:</p>
+
+<pre><code class="console"># create s3-python topic
+$ kubectl -n pubsub exec -it kafka-0 -- /opt/bitnami/kafka/bin/kafka-topics.sh --create --zookeeper zookeeper.pubsub:2181 --replication-factor 1 --partitions 1 --topic s3-python
+
+# send test message to s3-python topic
+$ kubectl -n pubsub exec -it kafka-0 -- /opt/bitnami/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic s3-python
+&gt; hello world
+</code></pre>
+
+<p>Open another terminal and check for the pubsub function log to see if it receives the message:</p>
+
+<pre><code class="console">$ kubectl logs -f pubsub-python-5445bdcb64-48bv2
+hello world
+</code></pre>
+
+<p>When using SASL you must add <code>KAFKA_ENABLE_SASL</code>, <code>KAFKA_USERNAME</code> and <code>KAFKA_PASSWORD</code> env var to set authentification (might use a secret).:</p>
+
+<pre><code class="yaml">$ echo &#39;
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    kubeless: kafka-trigger-controller
+  name: kafka-trigger-controller
+  namespace: kubeless
+spec:
+  selector:
+    matchLabels:
+      kubeless: kafka-trigger-controller
+  template:
+    metadata:
+      labels:
+        kubeless: kafka-trigger-controller
+    spec:
+      containers:
+      - image: bitnami/kafka-trigger-controller:latest
+        imagePullPolicy: IfNotPresent
+        name: kafka-trigger-controller
+        env:
+        ...
+        - name: KAFKA_ENABLE_SASL
+          value: true # CHANGE THIS!
+        - name: KAFKA_USERNAME
+          value: kafka-sasl-username # CHANGE THIS!
+        - name: KAFKA_PASSWORD
+          value: kafka-sasl-password # CHANGE THIS!
+...
+</code></pre>
+
+<p>When using SSL to secure kafka communication, you must set <code>KAFKA_ENABLE_TLS</code>, and specify some of these: <br>
+* <code>KAFKA_CACERTS</code> to check server certificate<br>
+* <code>KAFKA_CERT</code> and <code>KAFKA_KEY</code> to check client certificate<br>
+* <code>KAFKA_INSECURE</code> to skip TLS verfication</p>
+
+<p>Example for Kafka controller deployments using TLS</p>
+
+<p><code>Prerequisite</code> : Create secrets to hold certificates and keys.</p>
+
+<pre><code class="yaml">---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    kubeless: kafka-trigger-controller
+  name: kafka-trigger-controller
+  namespace: kubeless
+spec:
+  selector:
+    matchLabels:
+      kubeless: kafka-trigger-controller
+  template:
+    metadata:
+      labels:
+        kubeless: kafka-trigger-controller
+    spec:
+      volumes:
+      - name: kafka-volume
+        secret:
+          secretName: certs-and-keys-secret # REPLACE WITH SECRET HOLDING CERTS AND KEYS
+      containers:
+      - image: bitnami/kafka-trigger-controller:latest
+        imagePullPolicy: IfNotPresent
+        name: kafka-trigger-controller
+        volumeMounts:
+        - name: kafka-volume
+          mountPath: /path/to/certsandkeys
+        env:
+        ...
+        - name: KAFKA_ENABLE_TLS
+          value: &quot;true&quot; # ENABLE TLS
+        - name: KAFKA_CACERTS
+          value: &quot;/path/to/certsandkeys/ca.crt&quot; # CHANGE THIS! (NOTE : PATH HERE MATCHING THE MOUNT PATH ABOVE)
+        - name: KAFKA_CERT
+          value: &quot;/path/to/certsandkeys/cert.pem&quot; # CHANGE THIS! (NOTE : PATH HERE MATCHING THE MOUNT PATH ABOVE)
+        - name: KAFKA_KEY
+          value: &quot;/path/to/certsandkeys/key.pem&quot; # CHANGE THIS! (NOTE : PATH HERE MATCHING THE MOUNT PATH ABOVE)
+...
+</code></pre>
+
+</div>
+</div>
+</main>
+<div class='margin-t-giant'>
+<div class='Footer'>
+<div class='container padding-h-big padding-v-bigger'>
+<div class='Footer__Border padding-t-big'>
+<div class='row collapse-b-phone-land'>
+<div class='col-6'>
+<h4 class='inverse margin-reset'>
+<img src="/assets/images/logo-white.svg" alt="Kubeless logo" class="Footer__Logo" />
+</h4>
+<p class='type-color-iron type-small margin-reset'>
+© Kubeless 2021 | All Rights Reserved.
+</p>
+</div>
+<div class='col-6 text-r'>
+<a href="https://github.com/kubeless" class="margin-l-small"><img src="/assets/images/social/github.svg" alt="See the Github Profile of the Kubeless project" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
