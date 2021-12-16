@@ -1,6 +1,12 @@
-[![Build Status](https://travis-ci.org/kubeless/kubeless-website.svg?branch=master)](https://travis-ci.org/kubeless/kubeless-website)
+## WARNING: Kubeless is no longer actively maintained by VMware.
+
+VMware has made the difficult decision to stop driving this project and therefore we will no longer actively respond to issues or pull requests. If you would like to take over maintaining this project independently from VMware, please let us know so we can add a link to your forked project here.
+
+Thank You.
 
 # Kubeless site
+
+[![Build Status](https://travis-ci.org/kubeless/kubeless-website.svg?branch=master)](https://travis-ci.org/kubeless/kubeless-website)
 
 This repository contains the [kubeless.io](http://kubeless.io) source code. We use [middleman](https://middlemanapp.com) to generate the final HTML code.
 
